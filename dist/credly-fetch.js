@@ -7,44 +7,73 @@ class CredlyBadgeFetcher {
     this.baseUrl = 'https://www.credly.com/users';
   }
 
-  // Fetch badges from Credly with proxy fallback for CORS issues
+  // Fetch badges from Credly with multiple fallback strategies
   async fetchBadges() {
+    console.log('Attempting to fetch badges from Credly...');
+    
+    // Strategy 1: Try direct fetch (may work on deployed sites)
     try {
-      // Try direct fetch first
+      console.log('Trying direct fetch...');
       const directUrl = `${this.baseUrl}/${this.username}/badges.json`;
-      console.log('Attempting direct fetch from:', directUrl);
-      
       const response = await fetch(directUrl);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      console.log('Direct fetch successful, badges found:', data.data?.length || 0);
-      return data.data || [];
-    } catch (error) {
-      console.warn('Direct fetch failed, trying proxy method:', error.message);
       
-      // If direct fetch fails (likely due to CORS), try a proxy
-      try {
-        // Using AllOrigins proxy as a fallback
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`${this.baseUrl}/${this.username}/badges.json`)}`;
-        console.log('Attempting proxy fetch from:', proxyUrl);
-        
-        const proxyResponse = await fetch(proxyUrl);
-        if (!proxyResponse.ok) {
-          throw new Error(`Proxy HTTP error! status: ${proxyResponse.status}`);
-        }
-        
-        const proxyData = await proxyResponse.json();
-        const jsonData = JSON.parse(proxyData.contents);
-        console.log('Proxy fetch successful, badges found:', jsonData.data?.length || 0);
-        return jsonData.data || [];
-      } catch (proxyError) {
-        console.error('Both direct and proxy fetch failed:', proxyError.message);
-        // Return empty array to trigger fallback to manual certificates
-        return [];
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Direct fetch successful, badges found:', data.data?.length || 0);
+        return data.data || [];
+      } else {
+        console.warn('Direct fetch failed with status:', response.status);
       }
+    } catch (error) {
+      console.warn('Direct fetch failed with error:', error.message);
     }
+
+    // Strategy 2: Try with CORS proxy
+    try {
+      console.log('Trying CORS proxy...');
+      const proxyUrls = [
+        `https://api.allorigins.win/get?url=${encodeURIComponent(`${this.baseUrl}/${this.username}/badges.json`)}`,
+        `https://cors-anywhere.herokuapp.com/${this.baseUrl}/${this.username}/badges.json`,
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(`${this.baseUrl}/${this.username}/badges.json`)}`
+      ];
+      
+      for (const proxyUrl of proxyUrls) {
+        try {
+          console.log('Trying proxy:', proxyUrl);
+          const proxyResponse = await fetch(proxyUrl);
+          
+          if (proxyResponse.ok) {
+            const proxyData = await proxyResponse.json();
+            
+            // Handle different proxy response formats
+            let jsonData;
+            if (proxyData.contents) {
+              // AllOrigins format
+              jsonData = JSON.parse(proxyData.contents);
+            } else if (proxyData.body) {
+              // CodeTabs format
+              jsonData = JSON.parse(proxyData.body);
+            } else {
+              // Direct proxy format
+              jsonData = proxyData;
+            }
+            
+            console.log('Proxy fetch successful, badges found:', jsonData.data?.length || 0);
+            return jsonData.data || [];
+          } else {
+            console.warn('Proxy fetch failed with status:', proxyResponse.status);
+          }
+        } catch (proxyError) {
+          console.warn('Proxy attempt failed:', proxyError.message);
+        }
+      }
+    } catch (error) {
+      console.warn('All proxy attempts failed:', error.message);
+    }
+
+    // If all strategies fail, return empty array to trigger fallback
+    console.log('All fetch strategies failed, returning empty array');
+    return [];
   }
 
   // Transform Credly badge data to match portfolio format
@@ -105,7 +134,7 @@ async function initCredlyBadges() {
   if (!certGrid) return;
 
   // Show loading message
-  certGrid.innerHTML = '<p>Loading badges from Credly...</p>';
+  certGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1 / -1;">Loading badges from Credly...</p>';
 
   try {
     const fetcher = new CredlyBadgeFetcher('dhyey-khanpara');
@@ -122,13 +151,13 @@ async function initCredlyBadges() {
       // Fallback to existing data if no badges fetched
       console.log('No badges found, falling back to manual certificates');
       renderCertificates(window.CERTS || []);
-      certGrid.innerHTML = '<p>No badges found on Credly. Showing default certificates.</p>';
+      certGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1 / -1;">No badges found on Credly. Showing default certificates.</p>';
     }
   } catch (error) {
     console.error('Error initializing Credly badges:', error);
     // Fallback to existing data if there's an error
     renderCertificates(window.CERTS || []);
-    certGrid.innerHTML = '<p>Error loading badges from Credly. Showing default certificates.</p>';
+    certGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1 / -1;">Error loading badges from Credly. Showing default certificates.</p>';
   }
 }
 
@@ -162,7 +191,7 @@ function renderCredlyCertificates(list) {
       el.classList.add('fade-in', 'appear'); 
     });
   } else {
-    grid.innerHTML = '<p>No certificates or badges available.</p>';
+    grid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1 / -1;">No certificates or badges available.</p>';
   }
 }
 
@@ -175,6 +204,9 @@ function renderCertificates(list) {
 document.addEventListener('DOMContentLoaded', () => {
   // Only initialize if we're on the certificates page
   if (document.getElementById('certGrid')) {
-    initCredlyBadges();
+    // Add a small delay to ensure all scripts are loaded
+    setTimeout(() => {
+      initCredlyBadges();
+    }, 100);
   }
 });

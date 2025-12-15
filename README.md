@@ -153,6 +153,26 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
 We use a simple static build approach instead of Vite's build command to avoid permission issues that can occur on Vercel hosting platforms.
 
+## Debugging
+
+### Certificate Page Debugging
+
+The portfolio includes debugging features for the certificates page:
+
+1. `debug-certificates.js` - A script that logs detailed information about the certificate loading process
+2. `test-credly.html` - A standalone test page to verify Credly badge fetching
+
+To use the debugging features:
+
+1. Open the browser developer tools (F12)
+2. Navigate to the certificates page
+3. Check the console for detailed logs about the certificate loading process
+
+For testing Credly integration specifically:
+1. Open `test-credly.html` in your browser
+2. Click the "Fetch My Credly Badges" button
+3. View the results and any error messages
+
 ## Customization
 
 ### Colors

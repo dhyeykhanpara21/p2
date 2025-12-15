@@ -56,6 +56,7 @@ const itemsToCopy = [
     'project-card.css',
     'project-card.js',
     'testimonials-marquee.css',
+    'debug-certificates.js',
     'assets',
     'components'
 ];
