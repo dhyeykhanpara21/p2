@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline Component Demo</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/components/ui/timeline.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .demo-header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+    
+    .demo-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    
+    .demo-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <div class="demo-header">
+      <h1 class="demo-title">Timeline Component</h1>
+      <p class="demo-subtitle">A responsive timeline component for showcasing experiences and milestones</p>
+    </div>
+    
+    <div id="timeline-demo"></div>
+  </div>
+
+  <script src="/components/ui/timeline.js"></script>
+  <script>
+    // Sample timeline data
+    const demoData = [
+      {
+        title: "2024",
+        content: `
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Senior Frontend Developer</h3>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Tech Innovations Inc.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Led a team of 5 developers in building a SaaS platform</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Implemented micro-frontend architecture reducing load times by 40%</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Introduced automated testing resulting in 99% code coverage</li>
+            </ul>
+          </div>
+        `
+      },
+      {
+        title: "2022-2024",
+        content: `
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Full Stack Developer</h3>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Digital Solutions LLC</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Developed and maintained 10+ client websites using React and Node.js</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Created CI/CD pipelines reducing deployment time by 60%</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Mentored junior developers and conducted technical interviews</li>
+            </ul>
+          </div>
+        `
+      },
+      {
+        title: "2020-2022",
+        content: `
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Frontend Intern</h3>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">WebCraft Studios</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Built responsive UI components with React and Tailwind CSS</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Optimized website performance achieving 95+ Lighthouse scores</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Collaborated with designers to implement pixel-perfect interfaces</li>
+            </ul>
+          </div>
+        `
+      },
+      {
+        title: "2019-2020",
+        content: `
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Computer Science Student</h3>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">University of Technology</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Graduated with honors, GPA: 3.8/4.0</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">President of Computer Science Club (200+ members)</li>
+              <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Winner of University Hackathon 2020</li>
+            </ul>
+          </div>
+        `
+      }
+    ];
+    
+    // Initialize timeline when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const timelineContainer = document.getElementById('timeline-demo');
+      if (timelineContainer) {
+        new Timeline(timelineContainer, demoData);
+      }
+    });
+  </script>
+</body>
+</html>

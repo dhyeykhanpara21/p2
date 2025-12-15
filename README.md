@@ -8,6 +8,7 @@ A sleek, responsive portfolio website with a dark theme, built with vanilla HTML
 - Responsive design for all device sizes
 - Project showcase with interactive cards
 - Certificate integration with Credly
+- Experience timeline component
 - Smooth animations and transitions
 - Mobile-friendly navigation
 - Integration with Lucide icons
@@ -20,7 +21,10 @@ portfolio/
 │   └── ui/
 │       ├── project-card.js
 │       ├── project-card.css
-│       └── project-card-demo.html
+│       ├── project-card-demo.html
+│       ├── timeline.js
+│       ├── timeline.css
+│       └── timeline-demo.html
 ├── assets/
 ├── index.html
 ├── projects.html
@@ -81,6 +85,46 @@ const projectsData = [
 ];
 
 new ProjectCard(projectGrid, projectsData);
+```
+
+### Timeline
+
+The timeline component showcases experiences and milestones in a visually appealing way:
+
+- Vertical timeline layout with animated progress indicator
+- Responsive design that works on all device sizes
+- Sticky year markers for easy navigation
+- Smooth scrolling effects
+- Dark theme consistency
+
+To use the timeline component:
+
+1. Include the CSS file in your HTML:
+```html
+<link rel="stylesheet" href="/components/ui/timeline.css" />
+```
+
+2. Include the JavaScript file:
+```html
+<script src="/components/ui/timeline.js"></script>
+```
+
+3. Add a container element with an ID:
+```html
+<div id="timeline-container"></div>
+```
+
+4. Initialize the component with JavaScript:
+```javascript
+const timelineData = [
+  {
+    title: "2024",
+    content: "<div><h3>Job Title</h3><p>Company Name</p><ul><li>Responsibility 1</li><li>Responsibility 2</li></ul></div>"
+  }
+];
+
+const timelineContainer = document.getElementById('timeline-container');
+new Timeline(timelineContainer, timelineData);
 ```
 
 ### Credly Certificate Integration

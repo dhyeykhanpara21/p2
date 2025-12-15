@@ -8,6 +8,7 @@
   <meta name="robots" content="index,follow" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/components/ui/timeline.css" />
 </head>
 <body>
   <!-- Loader -->
@@ -150,7 +151,7 @@
     </a>
   </nav>
 
-    <main style="margin-left: 0;">
+  <main style="margin-left: 0;">
     <!-- Page Content -->
     <section class="content-section">
       <div class="container">
@@ -158,7 +159,7 @@
           <h1>Experience</h1>
           <p>Internships and professional roles.</p>
         </div>
-        <div id="expList" class="grid gap-3"></div>
+        <div id="timeline-container"></div>
       </div>
     </section>
 
@@ -188,5 +189,30 @@
 
   <script src="/data.js"></script>
   <script src="/page.js"></script>
+  <script src="/components/ui/timeline.js"></script>
+  <script>
+    // Initialize timeline when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Convert experience data to timeline format
+      const timelineData = window.EXPERIENCE.map(exp => ({
+        title: exp.duration,
+        content: `
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">${exp.role}</h3>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">${exp.company}</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+              ${exp.bullets.map(bullet => `<li style="margin-bottom: 0.5rem; color: var(--text-secondary);">${bullet}</li>`).join('')}
+            </ul>
+          </div>
+        `
+      }));
+      
+      // Initialize timeline component
+      const timelineContainer = document.getElementById('timeline-container');
+      if (timelineContainer && timelineData.length > 0) {
+        new Timeline(timelineContainer, timelineData);
+      }
+    });
+  </script>
 </body>
 </html>
