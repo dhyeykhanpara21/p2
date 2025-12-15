@@ -1,0 +1,32 @@
+{
+  "name": "portfolio-project",
+  "version": "1.0.0",
+  "description": "A modern dark-themed portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "dark-theme",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "lucide": "^0.344.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
