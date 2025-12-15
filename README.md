@@ -109,22 +109,47 @@ Features:
 ## Setup
 
 1. Clone the repository
-2. Open `index.html` in your browser, or
-3. Serve the project with any static server
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Open `index.html` in your browser, or
+
+## Development
 
 For development with hot reloading:
 ```bash
-npm install
 npm run dev
 ```
 
 To run the local server (recommended for Credly integration):
 ```bash
-npm install
 npm run serve
 ```
 
 Then open http://localhost:3000 in your browser.
+
+## Building for Production
+
+To build the site for production deployment:
+```bash
+npm run build
+```
+
+This will create a `dist/` directory with all the optimized static files.
+
+## Deployment
+
+### Vercel (Recommended)
+
+This portfolio is configured for easy deployment to Vercel:
+
+1. Push your code to a Git repository
+2. Import the repository in your Vercel dashboard
+3. Vercel will automatically detect and deploy the project
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
 ## Customization
 

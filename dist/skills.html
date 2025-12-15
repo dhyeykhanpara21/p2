@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skills | Portfolio | Computer Engineer · Full‑Stack Developer</title>
+  <meta name="description" content="Technologies, tools, and platforms I work with." />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" href="/assets/favicon-LlZjPXIn.svg" type="image/svg+xml">
+  <link rel="stylesheet" crossorigin href="/assets/styles-imhitkO-.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div></div>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <a href="/" class="sidebar-item" title="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+    <a href="/about.html" class="sidebar-item" title="About">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>About</span>
+    </a>
+    <a href="/skills.html" class="sidebar-item active" title="Skills">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+        <path d="M12 6v6l4 2"></path>
+      </svg>
+      <span>Skills</span>
+    </a>
+    <a href="/certificates.html" class="sidebar-item" title="Certificates">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span>Certificates</span>
+    </a>
+    <a href="/projects.html" class="sidebar-item" title="Projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      <span>Projects</span>
+    </a>
+    <a href="/experience.html" class="sidebar-item" title="Experience">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 3v4M8 3v4"></path>
+      </svg>
+      <span>Experience</span>
+    </a>
+    <a href="/achievements.html" class="sidebar-item" title="Achievements">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="8" r="7"></circle>
+        <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.11"></path>
+      </svg>
+      <span>Achievements</span>
+    </a>
+    <a href="/contact.html" class="sidebar-item" title="Contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span>Contact</span>
+    </a>
+  </aside>
+
+  <!-- Mobile Menu Toggle -->
+  <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <a href="/" class="mobile-menu-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      Home
+    </a>
+    <a href="/about.html" class="mobile-menu-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      About
+    </a>
+    <a href="/skills.html" class="mobile-menu-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+        <path d="M12 6v6l4 2"></path>
+      </svg>
+      Skills
+    </a>
+    <a href="/certificates.html" class="mobile-menu-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      Certificates
+    </a>
+    <a href="/projects.html" class="mobile-menu-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      Projects
+    </a>
+    <a href="/experience.html" class="mobile-menu-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 3v4M8 3v4"></path>
+      </svg>
+      Experience
+    </a>
+    <a href="/achievements.html" class="mobile-menu-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="8" r="7"></circle>
+        <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.11"></path>
+      </svg>
+      Achievements
+    </a>
+    <a href="/contact.html" class="mobile-menu-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      Contact
+    </a>
+  </nav>
+
+  <main style="margin-left: 0;">
+    <!-- Page Content -->
+    <section class="content-section">
+      <div class="container">
+        <div class="section-header">
+          <h1>Skills & Technologies</h1>
+          <p>Tools and platforms I work with.</p>
+        </div>
+        <div class="grid grid-2 gap-4">
+          <div class="card fade-in">
+            <h3 class="card-title">Frontend</h3>
+            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+              <div class="skill-pill">HTML</div>
+              <div class="skill-pill">CSS</div>
+              <div class="skill-pill">JavaScript</div>
+              <div class="skill-pill">React</div>
+              <div class="skill-pill">Next.js</div>
+              <div class="skill-pill">Tailwind</div>
+            </div>
+          </div>
+          <div class="card fade-in">
+            <h3 class="card-title">Backend</h3>
+            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+              <div class="skill-pill">Node.js</div>
+              <div class="skill-pill">Express</div>
+              <div class="skill-pill">Python</div>
+              <div class="skill-pill">Django</div>
+              <div class="skill-pill">PHP</div>
+              <div class="skill-pill">REST APIs</div>
+            </div>
+          </div>
+          <div class="card fade-in">
+            <h3 class="card-title">Databases</h3>
+            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+              <div class="skill-pill">SQL</div>
+              <div class="skill-pill">PostgreSQL</div>
+              <div class="skill-pill">MongoDB</div>
+              <div class="skill-pill">Firebase</div>
+              <div class="skill-pill">Redis</div>
+            </div>
+          </div>
+          <div class="card fade-in">
+            <h3 class="card-title">Tools & Platforms</h3>
+            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+              <div class="skill-pill">GitHub</div>
+              <div class="skill-pill">Google Cloud</div>
+              <div class="skill-pill">AWS</div>
+              <div class="skill-pill">Docker</div>
+              <div class="skill-pill">Vercel</div>
+              <div class="skill-pill">Netlify</div>
+            </div>
+          </div>
+          <div class="card fade-in">
+            <h3 class="card-title">Design & Collaboration</h3>
+            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+              <div class="skill-pill">Figma</div>
+              <div class="skill-pill">Canva</div>
+              <div class="skill-pill">Git</div>
+              <div class="skill-pill">Jira</div>
+              <div class="skill-pill">Slack</div>
+            </div>
+          </div>
+          <div class="card fade-in">
+            <h3 class="card-title">Other</h3>
+            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+              <div class="skill-pill">GraphQL</div>
+              <div class="skill-pill">WebSockets</div>
+              <div class="skill-pill">Testing</div>
+              <div class="skill-pill">CI/CD</div>
+              <div class="skill-pill">SEO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Tool Stack -->
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Tool Stack</h2>
+        
+        <!-- Tools Grid -->
+        <div class="tool-stack-grid">
+          <!-- React.js -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#61DAFB">
+                <circle cx="12" cy="12" r="2.139"/>
+                <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1"/>
+                <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" transform="rotate(60 12 12)"/>
+                <ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" transform="rotate(120 12 12)"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">React.js</span>
+          </div>
+          
+          <!-- JavaScript -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon" style="background: #F7DF1E; border-radius: 4px;">
+              <span style="font-weight: bold; font-size: 1.5rem; color: #000;">JS</span>
+            </div>
+            <span class="tool-stack-name">JavaScript</span>
+          </div>
+          
+          <!-- Python -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#3776AB">
+                <path d="M12 2c-1.5 0-2.9.3-3.9.8-.9.5-1.5 1.2-1.5 2.1v1.5h5v.5H5.5c-1.1 0-2.1.6-2.7 1.8-.7 1.4-.7 3.6 0 5 .5 1 1.4 1.7 2.4 1.7h1.6v-1.9c0-1.3 1.1-2.5 2.5-2.5h4.4c1.1 0 2-.9 2-2V4.9c0-1.1-.9-1.9-2-2.1-.6-.1-1.3-.2-2-.2h-.2zm-2.2 1.4c.4 0 .8.4.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8z"/>
+                <path d="M18.2 6.5v1.8c0 1.4-1.1 2.6-2.5 2.6h-4.4c-1.1 0-2 .9-2 2v3.7c0 1.1.9 1.8 2 2.1 1.3.3 2.5.4 4 0 1-.2 2-.7 2-2.1v-1.5h-4v-.5h6c1.2 0 1.6-.8 2-2 .4-1.2.4-2.4 0-4-.3-1.1-.9-2-2-2h-1.1zm-2.5 9.5c.4 0 .8.4.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8z" fill="#FFD43B"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">Python</span>
+          </div>
+          
+          <!-- Django -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <span style="font-weight: bold; font-size: 1.8rem; color: #092E20; font-family: serif;">dj</span>
+            </div>
+            <span class="tool-stack-name">Django</span>
+          </div>
+          
+          <!-- HTML -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#E34F26">
+                <path d="M4.136 3.012h15.729l-1.431 16.15-6.451 1.826-6.414-1.826-1.433-16.15zm12.451 5.476H7.89l.255 2.836h8.172l-.763 8.542-3.554.972-3.55-.972-.228-2.546h2.776l.114 1.28 .888.238.889-.238.093-1.043h-5.513l-.077-.863-.162-1.82-.086-.963h8.613l.253-2.835h-8.89l-.252-2.835h11.681l-.253 2.835-.085.412z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">HTML</span>
+          </div>
+          
+          <!-- CSS -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#1572B6">
+                <path d="M4.136 3.012h15.729l-1.431 16.15-6.451 1.826-6.414-1.826-1.433-16.15zm12.451 5.476l-.253 2.835H9.16l.17 1.908h6.924l-.509 5.686-3.755 1.043-3.748-1.043-.257-2.878h2.401l.13 1.467 1.474.398 1.478-.398.154-1.726H7.443l-.51-5.715-.086-.963h9.74z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">CSS</span>
+          </div>
+          
+          <!-- Docker -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#2496ED">
+                <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.186m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.184-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">Docker</span>
+          </div>
+          
+          <!-- WordPress -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#21759B">
+                <path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.051-.18 2.986-.517a.578.578 0 01-.046-.09l-2.782-7.598zM3.009 12c0 3.559 2.068 6.634 5.067 8.092L3.788 8.341A8.972 8.972 0 003.009 12zm15.614-2.757a4.666 4.666 0 00-.741-2.487c-.456-.742-.936-1.369-.936-2.11 0-.827.627-1.597 1.512-1.597.04 0 .078.005.116.008A8.967 8.967 0 0012 3.009c-3.207 0-6.027 1.645-7.669 4.136.215.007.418.011.593.011.963 0 2.454-.117 2.454-.117.496-.03.555.7.059.758 0 0-.499.059-1.053.088l3.351 9.97 2.015-6.04-1.434-3.93c-.496-.029-.966-.088-.966-.088-.497-.029-.439-.787.057-.758 0 0 1.52.117 2.425.117.963 0 2.454-.117 2.454-.117.496-.03.555.7.059.758 0 0-.5.059-1.054.088l3.325 9.893.918-3.069c.398-1.272.701-2.186.701-2.974zm-6.481.389l-2.762 8.024a8.977 8.977 0 005.518-.143.795.795 0 01-.064-.123l-2.692-7.758zm7.691-.711c.039.284.061.588.061.911 0 .899-.168 1.908-.672 3.172l-2.7 7.808c2.628-1.532 4.395-4.385 4.395-7.663 0-1.537-.392-2.982-1.084-4.228zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 23.465c-6.327 0-11.465-5.138-11.465-11.465S5.673.535 12 .535 23.465 5.673 23.465 12 18.327 23.465 12 23.465z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">WordPress</span>
+          </div>
+          
+          <!-- Git -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#F05032">
+                <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">Git</span>
+          </div>
+          
+          <!-- GitHub -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#ffffff">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">GitHub</span>
+          </div>
+          
+          <!-- Figma -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24">
+                <path fill="#F24E1E" d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z"/>
+                <path fill="#A259FF" d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z"/>
+                <path fill="#F24E1E" d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z"/>
+                <path fill="#FF7262" d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z"/>
+                <path fill="#1ABCFE" d="M20 12c0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4 4 1.792 4 4z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">Figma</span>
+          </div>
+          
+          <!-- Firebase -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24">
+                <path fill="#FFA000" d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771z"/>
+                <path fill="#F57F17" d="M10.887 8.976L9.813 5.059 7.27.288a.542.542 0 00-1.015.173L3.89 15.672z"/>
+                <path fill="#FFCA28" d="M20.16 18.111l-1.702-10.6a.534.534 0 00-.918-.298L3.89 23.093l7.279 4.229a1.62 1.62 0 001.665 0l7.327-4.189z"/>
+                <path fill="#FFA000" d="M14.256 10.717L10.887 5.059l-.074-.147 3.443 5.805z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">Firebase</span>
+          </div>
+          
+          <!-- PostgreSQL -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#4169E1">
+                <path d="M17.128 0a10.134 10.134 0 00-2.755.403l-.063.02a10.922 10.922 0 00-1.612.392l-.12.042c-.479-.15-1.007-.266-1.58-.342C9.2.223 7.296.38 5.743 1.113c-.799.378-1.51.89-2.052 1.573-.548.693-.908 1.505-1.087 2.45-.14.748-.147 1.58-.054 2.468l.003.026c.109 1.072.34 2.236.674 3.444.332 1.198.762 2.425 1.29 3.561.264.568.553 1.106.873 1.595.317.484.668.92 1.062 1.297.398.38.842.697 1.345.93.5.232 1.064.384 1.702.425l.006.001h.063c.524.005 1.016-.073 1.464-.229.219-.077.428-.17.624-.282.12.188.247.378.381.566.508.712 1.116 1.388 1.859 1.864.368.236.78.42 1.23.51.45.09.945.082 1.418-.046.44-.12.844-.327 1.195-.589.35-.263.648-.581.9-.927.252-.346.46-.718.63-1.099.168-.378.301-.766.404-1.148.076-.279.14-.555.194-.816.158-.756.253-1.378.318-1.847l.023-.164c.026-.215.06-.49.08-.774l.02-.293c.042-.598.049-1.128.023-1.61.212-.164.418-.361.606-.603.19-.244.358-.528.487-.866.129-.338.216-.733.237-1.195.02-.464-.027-.997-.178-1.604l-.013-.051a4.755 4.755 0 00-.4-1.045c.09-.264.168-.556.23-.879.238-1.246-.035-2.62-.972-3.714-.47-.548-1.074-.973-1.816-1.274A6.673 6.673 0 0017.128 0zM6.94 2.063a5.506 5.506 0 011.932.28 3.79 3.79 0 00-1.157.918c-.412.49-.717 1.074-.922 1.72-.205.645-.308 1.352-.316 2.092-.009.74.076 1.513.244 2.29.085.394.191.785.318 1.167-.096-.033-.193-.065-.292-.095-.594-.183-1.237-.3-1.902-.293a4.326 4.326 0 00-1.68.344c-.003-.147-.003-.296.003-.447.025-.72.139-1.372.343-1.96.204-.586.496-1.112.869-1.582.373-.47.827-.885 1.352-1.239A6.096 6.096 0 016.94 2.063zm10.259.287a5.044 5.044 0 011.677.403c.512.209.938.5 1.27.875.667.754.942 1.736.763 2.668a5.233 5.233 0 01-.2.702 5.512 5.512 0 00-.517-.673c-.468-.516-1.087-.905-1.85-1.168-.762-.263-1.67-.4-2.697-.408-.096-.001-.193 0-.29.002a6.725 6.725 0 01.397-.664c.326-.465.768-.883 1.345-1.19a.42.42 0 01.102-.047zm-4.127.746c.408.031.772.122 1.097.271.405.185.748.45 1.032.771.283.321.508.695.679 1.096.17.4.287.827.352 1.26.127.856.06 1.754-.154 2.595l-.037.142c-.114.45-.27.875-.475 1.266-.205.392-.458.75-.762 1.068a3.91 3.91 0 01-.958.755c.226.596.38 1.194.46 1.766.082.572.09 1.117.012 1.612-.039.248-.097.48-.175.694-.078.214-.175.41-.293.584-.118.174-.256.326-.415.455a1.59 1.59 0 01-.54.29c-.2.06-.418.074-.652.036-.235-.039-.487-.132-.759-.287-.545-.311-1.069-.856-1.525-1.5a9.226 9.226 0 01-.488-.755 3.156 3.156 0 01-.346.018c-.5.003-.98-.09-1.428-.27a3.52 3.52 0 01-1.155-.735c-.332-.316-.618-.689-.852-1.103-.234-.415-.417-.867-.552-1.342a11.37 11.37 0 01-.376-1.568 15.276 15.276 0 01-.173-1.646c-.022-.537-.014-1.04.029-1.497.043-.458.117-.867.223-1.22.213-.704.542-1.267.979-1.698.436-.43.978-.724 1.609-.888.63-.164 1.349-.199 2.14-.111.396.044.78.118 1.147.22a8.782 8.782 0 011.504-.582c.513-.14 1.004-.22 1.452-.193z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">PostgreSQL</span>
+          </div>
+          
+          <!-- MongoDB -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#47A248">
+                <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0.001.49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">MongoDB</span>
+          </div>
+          
+          <!-- Node.js -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24" fill="#339933">
+                <path d="M11.998 24c-.321 0-.641-.084-.922-.247L8.14 22.016c-.438-.245-.224-.332-.08-.383.548-.19.659-.233 1.244-.564.062-.034.142-.021.205.015l2.255 1.339c.082.045.198.045.275 0l8.794-5.077c.082-.047.134-.141.134-.238V6.921c0-.099-.053-.193-.137-.242l-8.791-5.072c-.081-.049-.189-.049-.271 0L3.176 6.68c-.085.049-.139.143-.139.242v10.185c0 .096.054.189.137.235l2.409 1.392c1.307.653 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.058c0 1.745-.95 2.745-2.604 2.745-.509 0-.909 0-2.026-.551L2.28 18.675c-.57-.329-.922-.943-.922-1.604V6.886c0-.66.352-1.274.922-1.603l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924 1.273.924 1.603v10.185c0 .66-.354 1.273-.924 1.604l-8.794 5.078c-.28.163-.6.247-.925.247zm2.722-7.012c-3.863 0-4.671-1.776-4.671-3.266 0-.141.113-.253.255-.253h1.137c.126 0 .232.091.251.216.171 1.153.679 1.736 2.992 1.736 1.841 0 2.625-.416 2.625-1.393 0-.564-.222-.981-3.082-1.262-2.39-.236-3.87-.764-3.87-2.678 0-1.765 1.487-2.816 3.982-2.816 2.801 0 4.187.972 4.361 3.059.006.076-.024.149-.075.205a.255.255 0 01-.182.083h-1.144a.252.252 0 01-.246-.196c-.273-1.216-.938-1.604-2.714-1.604-1.999 0-2.232.697-2.232 1.219 0 .633.275.818 2.989 1.176 2.689.356 3.963.859 3.963 2.751-.001 1.906-1.589 2.998-4.339 2.998z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">Node.js</span>
+          </div>
+          
+          <!-- Google Cloud -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <svg viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M12.19 5.598l3.267-3.267.172-.687-7.778.001a7.96 7.96 0 00-6.396 3.215l1.404 1.063 2.023-.343 1.392-1.422a4.787 4.787 0 013.916-1.56z"/>
+                <path fill="#EA4335" d="M19.561 7.854a7.974 7.974 0 00-2.41-3.499l-3.088 3.088a4.782 4.782 0 011.743 3.785h1.19a1.59 1.59 0 110 3.18h-4.77l-.32.319v2.544l.32.319h4.77a4.77 4.77 0 003.565-7.736z"/>
+                <path fill="#34A853" d="M7.849 17.59h4.378l-.001-.001.319-.319v-2.544l-.319-.319H7.849a1.583 1.583 0 01-.658-.144l-.453.453-1.403 1.063.265.267a4.77 4.77 0 002.249 1.544z"/>
+                <path fill="#FBBC05" d="M7.849 8.05a4.77 4.77 0 00-2.249 8.976l1.856-1.856a1.59 1.59 0 112.107-2.106l1.856-1.856A4.77 4.77 0 007.849 8.05z"/>
+              </svg>
+            </div>
+            <span class="tool-stack-name">Google Cloud</span>
+          </div>
+          
+          <!-- Wagtail -->
+          <div class="tool-stack-item">
+            <div class="tool-stack-icon">
+              <span style="font-weight: bold; font-size: 1.5rem; color: #2E1F5E; font-family: serif;">dj</span>
+            </div>
+            <span class="tool-stack-name">Wagtail</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg>
+            </a>
+          </div>
+          <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/page.js"></script>
+</body>
+</html>
