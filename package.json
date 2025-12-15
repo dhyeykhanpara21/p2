@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node build-static.js",
     "preview": "vite preview",
     "serve": "node server.js"
   },

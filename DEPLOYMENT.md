@@ -39,12 +39,12 @@ This portfolio is configured for easy deployment to Vercel.
 The project includes the following configuration files for deployment:
 
 - `vercel.json` - Vercel deployment configuration
-- `vite.config.js` - Vite build configuration
 - `package.json` - Build scripts and dependencies
+- `build-static.js` - Static build script for copying files
 
 ### Build Process
 
-Vercel will automatically run `npm run build` which uses Vite to build the static site. The build output is placed in the `dist/` directory.
+Vercel will automatically run `npm run build` which uses a simple Node.js script to copy all files to the `dist/` directory. This avoids permission issues with Vite's binary.
 
 ### Custom Domain
 
@@ -87,3 +87,7 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+### Why This Approach?
+
+We use a simple static build approach instead of Vite's build command to avoid permission issues that can occur on Vercel. The `build-static.js` script simply copies all necessary files to the `dist/` directory, which is what Vercel expects for static site deployment.

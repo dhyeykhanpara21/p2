@@ -137,7 +137,7 @@ To build the site for production deployment:
 npm run build
 ```
 
-This will create a `dist/` directory with all the optimized static files.
+This will create a `dist/` directory with all the static files using a simple copy approach to avoid permission issues.
 
 ## Deployment
 
@@ -150,6 +150,8 @@ This portfolio is configured for easy deployment to Vercel:
 3. Vercel will automatically detect and deploy the project
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
+
+We use a simple static build approach instead of Vite's build command to avoid permission issues that can occur on Vercel hosting platforms.
 
 ## Customization
 
