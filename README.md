@@ -11,6 +11,7 @@ A sleek, responsive portfolio website with a dark theme, built with vanilla HTML
 - Experience timeline component
 - Interactive gallery with hover effects
 - Contact form with validation
+- Database animation with REST API visualization
 - Smooth animations and transitions
 - Mobile-friendly navigation
 - Integration with Lucide icons
@@ -29,6 +30,9 @@ portfolio/
 │       ├── interactive-gallery.js
 │       ├── interactive-gallery.css
 │       ├── interactive-gallery-demo.html
+│       ├── database-animation.js
+│       ├── database-animation.css
+│       ├── database-animation-demo.html
 │       ├── contact-form.js
 │       ├── contact-form.css
 │       └── contact-form-demo.html
@@ -179,6 +183,54 @@ const galleryItems = [
 ];
 
 new InteractiveGallery(galleryContainer, galleryItems);
+```
+
+### Database Animation
+
+The database animation component visualizes data exchange using a customized REST API:
+
+- Animated SVG paths showing data flow
+- Moving light effects representing data packets
+- Interactive database visualization
+- REST API method buttons (GET, POST, PUT, DELETE)
+- Pulsing background circles for visual effect
+- Responsive design that works on all device sizes
+- Dark theme consistency
+
+To use the database animation component:
+
+1. Include the CSS file in your HTML:
+```html
+<link rel="stylesheet" href="/components/ui/database-animation.css" />
+```
+
+2. Include the JavaScript file:
+```html
+<script src="/components/ui/database-animation.js"></script>
+```
+
+3. Add a container element with an ID:
+```html
+<div id="database-container"></div>
+```
+
+4. Initialize the component with JavaScript:
+```javascript
+const databaseContainer = document.getElementById('database-container');
+new DatabaseAnimation(databaseContainer, {
+  title: "Data exchange using a customized REST API",
+  circleText: "SVG",
+  badgeTexts: {
+    first: "GET",
+    second: "POST",
+    third: "PUT",
+    fourth: "DELETE"
+  },
+  buttonTexts: {
+    first: "LegionDev",
+    second: "v2_updates"
+  }
+});
 ```
 
 ### Contact Form

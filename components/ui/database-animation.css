@@ -1,0 +1,450 @@
+/* Database animation styles */
+.database-animation-wrapper {
+  position: relative;
+  display: flex;
+  height: 350px;
+  width: 100%;
+  max-width: 500px;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+/* SVG Paths */
+.database-svg {
+  height: 100%;
+  width: 100%;
+  color: var(--text-light);
+}
+
+.database-path {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 0.4;
+  stroke-dasharray: 100 100;
+  path-length: 100;
+}
+
+.database-path-animation {
+  stroke-dashoffset: 100;
+  animation: draw-path 1s forwards cubic-bezier(0.25, 0.1, 0.5, 1);
+}
+
+@keyframes draw-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Blue Lights */
+.database {
+  offset-anchor: 10px 0px;
+  animation: database-animation-path 4s infinite cubic-bezier(0, 0, 0.2, 1);
+  animation-delay: 1s;
+}
+
+.db-light-1 {
+  offset-path: path("M 31 10 v 15 q 0 5 5 5 h 59 q 5 0 5 5 v 25");
+}
+
+.db-light-2 {
+  offset-path: path("M 77 10 v 10 q 0 5 5 5 h 13 q 5 0 5 5 v 25");
+}
+
+.db-light-3 {
+  offset-path: path("M 124 10 v 10 q 0 5 -5 5 h -14 q -5 0 -5 5 v 25");
+}
+
+.db-light-4 {
+  offset-path: path("M 170 10 v 15 q 0 5 -5 5 h -60 q -5 0 -5 5 v 25");
+}
+
+@keyframes database-animation-path {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+/* Blue Gradient */
+.db-blue-gradient {
+  stop-color: #00A6F5;
+}
+
+.db-transparent {
+  stop-color: transparent;
+}
+
+/* Buttons */
+.database-button-rect {
+  fill: #18181B;
+}
+
+.database-button-text {
+  fill: white;
+  stroke: none;
+  font-size: 5px;
+  font-weight: 500;
+}
+
+/* Main Box */
+.database-main-box {
+  position: absolute;
+  bottom: 40px; /* 10px */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Bottom shadow */
+.database-bottom-shadow {
+  position: absolute;
+  bottom: -16px; /* -4px */
+  height: 100px;
+  width: 62%;
+  border-radius: 0.5rem; /* rounded-lg */
+  background-color: rgba(255, 255, 255, 0.05); /* bg-accent/30 */
+}
+
+/* Box title */
+.database-box-title {
+  position: absolute;
+  top: -16px; /* -4px */
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid var(--border-color);
+  background-color: #101112;
+  padding: 0.5rem 0.5rem; /* px-2 py-1 */
+  font-size: 10px;
+}
+
+.database-sparkles-icon {
+  width: 0.75rem; /* size-3 */
+  height: 0.75rem;
+}
+
+.database-title-text {
+  margin-left: 0.5rem; /* ml-2 */
+}
+
+/* Box outer circle */
+.database-outer-circle {
+  position: absolute;
+  bottom: -32px; /* -8px */
+  z-index: 30;
+  display: grid;
+  height: 60px;
+  width: 60px;
+  place-items: center;
+  border-radius: 9999px; /* rounded-full */
+  border-top: 1px solid var(--border-color);
+  background-color: #141516;
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 600;
+}
+
+/* Box content */
+.database-box-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 150px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+/* Badges */
+.database-badge {
+  position: absolute;
+  bottom: 32px; /* 8px */
+  left: 48px; /* 12px */
+  z-index: 10;
+  height: 1.75rem; /* h-7 */
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid var(--border-color);
+  background-color: #101112;
+  padding: 0 0.75rem; /* px-3 */
+  font-size: 0.75rem; /* text-xs */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+}
+
+.database-badge-right {
+  right: 64px; /* 16px */
+  left: auto;
+}
+
+.database-badge-icon {
+  width: 1rem; /* size-4 */
+  height: 1rem;
+}
+
+/* Circles */
+.database-circle {
+  position: absolute;
+  bottom: -56px; /* -14px */
+  height: 100px;
+  width: 100px;
+  border-radius: 9999px;
+  border-top: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  animation: circle-pulse 2s infinite;
+}
+
+.database-circle-2 {
+  bottom: -80px; /* -20px */
+  height: 145px;
+  width: 145px;
+  animation-delay: 0.2s;
+}
+
+.database-circle-3 {
+  bottom: -100px; /* -25px */
+  height: 190px;
+  width: 190px;
+  animation-delay: 0.4s;
+}
+
+.database-circle-4 {
+  bottom: -120px; /* -30px */
+  height: 235px;
+  width: 235px;
+  animation-delay: 0.6s;
+}
+
+@keyframes circle-pulse {
+  0%, 100% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .database-animation-wrapper {
+    height: 300px;
+    max-width: 90%;
+  }
+  
+  .database-badge-right {
+    display: none !important;
+  }
+  
+  .database-box-content {
+    height: 140px;
+  }
+  
+  .database-box-title {
+    font-size: 9px;
+    padding: 0.4rem 0.4rem;
+    top: -14px;
+  }
+  
+  .database-outer-circle {
+    height: 50px;
+    width: 50px;
+    bottom: -25px;
+    font-size: 0.7rem;
+  }
+  
+  .database-bottom-shadow {
+    bottom: -14px;
+    height: 90px;
+  }
+  
+  .database-circle {
+    bottom: -50px;
+    height: 90px;
+    width: 90px;
+  }
+  
+  .database-circle-2 {
+    bottom: -70px;
+    height: 130px;
+    width: 130px;
+  }
+  
+  .database-circle-3 {
+    bottom: -90px;
+    height: 170px;
+    width: 170px;
+  }
+  
+  .database-circle-4 {
+    bottom: -110px;
+    height: 210px;
+    width: 210px;
+  }
+}
+
+@media (max-width: 480px) {
+  .database-animation-wrapper {
+    height: 250px;
+    max-width: 95%;
+  }
+  
+  .database-box-content {
+    height: 120px;
+  }
+  
+  .database-box-title {
+    font-size: 8px;
+    padding: 0.3rem 0.3rem;
+    top: -12px;
+  }
+  
+  .database-outer-circle {
+    height: 45px;
+    width: 45px;
+    bottom: -22px;
+    font-size: 0.65rem;
+  }
+  
+  .database-bottom-shadow {
+    bottom: -12px;
+    height: 80px;
+    width: 60%;
+  }
+  
+  .database-badge {
+    bottom: 25px;
+    left: 35px;
+    font-size: 0.7rem;
+    padding: 0 0.6rem;
+    height: 1.5rem;
+  }
+  
+  .database-badge-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  
+  .database-circle {
+    bottom: -45px;
+    height: 80px;
+    width: 80px;
+  }
+  
+  .database-circle-2 {
+    bottom: -65px;
+    height: 120px;
+    width: 120px;
+  }
+  
+  .database-circle-3 {
+    bottom: -85px;
+    height: 160px;
+    width: 160px;
+  }
+  
+  .database-circle-4 {
+    bottom: -105px;
+    height: 200px;
+    width: 200px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+  .database-animation-wrapper {
+    height: 220px;
+    max-width: 100%;
+  }
+  
+  .database-box-content {
+    height: 100px;
+  }
+  
+  .database-box-title {
+    font-size: 7px;
+    padding: 0.25rem 0.25rem;
+    top: -10px;
+  }
+  
+  .database-outer-circle {
+    height: 40px;
+    width: 40px;
+    bottom: -20px;
+    font-size: 0.6rem;
+  }
+  
+  .database-bottom-shadow {
+    bottom: -10px;
+    height: 70px;
+    width: 55%;
+  }
+  
+  .database-badge {
+    bottom: 20px;
+    left: 25px;
+    font-size: 0.65rem;
+    padding: 0 0.5rem;
+    height: 1.4rem;
+  }
+  
+  .database-badge-icon {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+  
+  .database-circle {
+    bottom: -40px;
+    height: 70px;
+    width: 70px;
+  }
+  
+  .database-circle-2 {
+    bottom: -60px;
+    height: 110px;
+    width: 110px;
+  }
+  
+  .database-circle-3 {
+    bottom: -80px;
+    height: 150px;
+    width: 150px;
+  }
+  
+  .database-circle-4 {
+    bottom: -100px;
+    height: 190px;
+    width: 190px;
+  }
+}
+
+/* Dark theme consistency */
+.database-animation-wrapper {
+  background-color: transparent;
+}
+
+.database-box-content,
+.database-box-title,
+.database-outer-circle,
+.database-badge {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.database-title-text,
+.database-button-text {
+  color: var(--text-primary);
+}
+
+.database-path {
+  stroke: var(--text-light);
+}
