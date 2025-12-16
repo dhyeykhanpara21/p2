@@ -9,6 +9,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/components/ui/database-animation.css" />
+  <link rel="stylesheet" href="/components/ui/interactive-gallery.css" />
 </head>
 <body>
   <!-- Loader -->
@@ -163,6 +164,9 @@
         <!-- Database Animation Component -->
         <div id="databaseAnimationContainer"></div>
         
+        <!-- Interactive Gallery Section (Second Section) -->
+        <div id="interactiveGalleryContainer"></div>
+        
         <div id="achievementsList" class="grid grid-2"></div>
       </div>
     </section>
@@ -194,6 +198,7 @@
   <script src="/data.js"></script>
   <script src="/page.js"></script>
   <script src="/components/ui/database-animation.js"></script>
+  <script src="/components/ui/interactive-gallery.js"></script>
   <script>
     // Initialize database animation when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
@@ -213,6 +218,51 @@
             second: "Activities"
           }
         });
+      }
+      
+      // Initialize interactive gallery
+      const galleryContainer = document.getElementById('interactiveGalleryContainer');
+      if (galleryContainer) {
+        // Sample gallery items (you can replace these with your actual data)
+        const galleryItems = [
+          {
+            id: "1",
+            type: "image",
+            src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=400&h=400&auto=format&fit=crop"
+          },
+          {
+            id: "5",
+            type: "text",
+            text: "Discover our AI-powered visual collection that transforms data and creativity into emotion."
+          },
+          {
+            id: "2",
+            type: "image",
+            src: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=400&h=400&auto=format&fit=crop"
+          },
+          {
+            id: "3",
+            type: "image",
+            src: "https://images.unsplash.com/photo-1555066932-4365d14bab8c?q=80&w=400&h=400&auto=format&fit=crop"
+          },
+          {
+            id: "6",
+            type: "text",
+            text: "Explore how intelligent design systems visualize the unseen and amplify imagination."
+          },
+          {
+            id: "4",
+            type: "image",
+            src: "https://images.unsplash.com/photo-1555066933-4365d14bab8c?q=80&w=400&h=400&auto=format&fit=crop"
+          },
+          {
+            id: "8",
+            type: "image",
+            src: "https://images.unsplash.com/photo-1555066934-4365d14bab8c?q=80&w=400&h=400&auto=format&fit=crop"
+          }
+        ];
+        
+        new InteractiveGallery(galleryContainer, galleryItems);
       }
     });
   </script>

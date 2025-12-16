@@ -9,6 +9,7 @@ A sleek, responsive portfolio website with a dark theme, built with vanilla HTML
 - Project showcase with interactive cards
 - Certificate integration with Credly
 - Experience timeline component
+- Interactive gallery with hover effects
 - Smooth animations and transitions
 - Mobile-friendly navigation
 - Integration with Lucide icons
@@ -24,7 +25,9 @@ portfolio/
 │       ├── project-card-demo.html
 │       ├── timeline.js
 │       ├── timeline.css
-│       └── timeline-demo.html
+│       ├── interactive-gallery.js
+│       ├── interactive-gallery.css
+│       └── interactive-gallery-demo.html
 ├── assets/
 ├── index.html
 ├── projects.html
@@ -127,6 +130,53 @@ const timelineContainer = document.getElementById('timeline-container');
 new Timeline(timelineContainer, timelineData);
 ```
 
+### Interactive Gallery
+
+The interactive gallery component displays a collection of images and text cards with hover effects:
+
+- Blurs and dims non-hovered items
+- Scales up hovered items
+- Supports both image and text content types
+- Responsive grid layout
+- Smooth transitions and animations
+- Dark theme consistency
+
+To use the interactive gallery component:
+
+1. Include the CSS file in your HTML:
+```html
+<link rel="stylesheet" href="/components/ui/interactive-gallery.css" />
+```
+
+2. Include the JavaScript file:
+```html
+<script src="/components/ui/interactive-gallery.js"></script>
+```
+
+3. Add a container element with an ID:
+```html
+<div id="gallery-container"></div>
+```
+
+4. Initialize the component with JavaScript:
+```javascript
+const galleryContainer = document.getElementById('gallery-container');
+const galleryItems = [
+  {
+    id: "1",
+    type: "image",
+    src: "path/to/image.jpg"
+  },
+  {
+    id: "2",
+    type: "text",
+    text: "Sample text content for the card"
+  }
+];
+
+new InteractiveGallery(galleryContainer, galleryItems);
+```
+
 ### Credly Certificate Integration
 
 The portfolio automatically fetches badges from your Credly profile and displays them on the certificates page.
@@ -198,54 +248,3 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 We use a simple static build approach instead of Vite's build command to avoid permission issues that can occur on Vercel hosting platforms.
 
 ## Debugging
-
-### Certificate Page Debugging
-
-The portfolio includes debugging features for the certificates page:
-
-1. `debug-certificates.js` - A script that logs detailed information about the certificate loading process
-2. `test-credly.html` - A standalone test page to verify Credly badge fetching
-
-To use the debugging features:
-
-1. Open the browser developer tools (F12)
-2. Navigate to the certificates page
-3. Check the console for detailed logs about the certificate loading process
-
-For testing Credly integration specifically:
-1. Open `test-credly.html` in your browser
-2. Click the "Fetch My Credly Badges" button
-3. View the results and any error messages
-
-## Customization
-
-### Colors
-
-The color scheme can be customized by modifying the CSS variables in `styles.css`:
-
-```css
-:root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: #1a1a1a;
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-light: #808080;
-  --border-color: #2a2a2a;
-  --accent: #000000;
-  --accent-hover: #1a1a1a;
-  --card-bg: #0a0a0a;
-  --card-border: #2a2a2a;
-}
-```
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## License
-
-MIT

@@ -1,0 +1,110 @@
+/* Interactive Gallery Component Styles */
+.interactive-gallery {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  background-color: var(--bg-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem 1rem;
+  transition: background-color 0.3s ease;
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+
+.interactive-gallery-item {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.interactive-gallery-item.image-type {
+  width: 10rem;
+  height: 10rem;
+}
+
+.interactive-gallery-item.text-type {
+  width: 18rem;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--card-border);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .interactive-gallery-item.image-type {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+.interactive-gallery-item.hovered {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.interactive-gallery-item.blurred {
+  filter: blur(2px);
+  opacity: 0.5;
+}
+
+.interactive-gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.interactive-gallery-text-content {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .interactive-gallery {
+    gap: 1.5rem;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .interactive-gallery-item.text-type {
+    width: 16rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .interactive-gallery {
+    gap: 1rem;
+    padding: 1rem 0.25rem;
+  }
+  
+  .interactive-gallery-item.image-type {
+    width: 9rem;
+    height: 9rem;
+  }
+  
+  .interactive-gallery-item.text-type {
+    width: 14rem;
+  }
+}
+
+/* Dark theme consistency */
+.interactive-gallery {
+  background-color: var(--bg-secondary);
+}
+
+.interactive-gallery-item.text-type {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+.interactive-gallery-text-content {
+  color: var(--text-secondary);
+}
