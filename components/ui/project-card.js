@@ -17,7 +17,7 @@ class ProjectCard {
 
     const projectCards = this.projects.map(project => this.createProjectCard(project)).join('');
     this.container.innerHTML = `
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid-responsive">
         ${projectCards}
       </div>
     `;

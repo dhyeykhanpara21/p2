@@ -36,6 +36,23 @@
   transform: translate(var(--center-offset-x, 0px), var(--center-offset-y, 0px));
 }
 
+/* Improve mobile responsiveness for the radial orbital timeline */
+@media (max-width: 768px) {
+  .rot-container {
+    height: 60vh;
+    min-height: 400px;
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .rot-container {
+    height: 50vh;
+    min-height: 350px;
+    margin: 1rem 0;
+  }
+}
+
 /* Center Core */
 .rot-core {
   position: absolute;
@@ -88,6 +105,21 @@
   cursor: pointer;
 }
 
+/* Improve mobile responsiveness for orbit ring and nodes */
+@media (max-width: 768px) {
+  .rot-orbit-ring {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rot-orbit-ring {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
 /* Pulse Effect */
 .rot-pulse {
   position: absolute;
@@ -125,6 +157,31 @@
   height: 1rem;
 }
 
+/* Improve mobile responsiveness for node circles */
+@media (max-width: 768px) {
+  .rot-node-circle {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  
+  .rot-node-circle svg {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rot-node-circle {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .rot-node-circle svg {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}
+
 .rot-related {
   background-color: rgba(255, 255, 255, 0.5);
   color: #000;
@@ -157,6 +214,21 @@
   transform: scale(1.25);
 }
 
+/* Improve mobile responsiveness for node titles */
+@media (max-width: 768px) {
+  .rot-node-title {
+    font-size: 0.7rem;
+    top: 2.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rot-node-title {
+    font-size: 0.65rem;
+    top: 2.6rem;
+  }
+}
+
 /* Node Card */
 .rot-node-card {
   position: absolute;
@@ -171,6 +243,28 @@
   overflow: visible;
   display: none;
   z-index: 200;
+}
+
+/* Improve mobile responsiveness for node cards */
+@media (max-width: 768px) {
+  .rot-node-card {
+    width: 14rem;
+    top: 4.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rot-node-card {
+    width: 12rem;
+    top: 4rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .rot-node-card {
+    width: 10rem;
+    top: 3.5rem;
+  }
 }
 
 .rot-card-connector {
@@ -326,5 +420,18 @@
   
   .rot-card-content {
     font-size: 0.625rem;
+  }
+}
+
+/* Additional mobile enhancements for touch targets */
+@media (max-width: 768px) {
+  .rot-node {
+    padding: 0.5rem;
+    margin: -0.5rem;
+  }
+  
+  .rot-node-circle {
+    min-width: 44px;
+    min-height: 44px;
   }
 }

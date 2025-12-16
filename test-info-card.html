@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Info Card Component</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/components/ui/info-card.css">
+  <style>
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background-color: #000;
+      color: #fff;
+      padding: 2rem;
+    }
+    
+    .test-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .card-wrapper {
+      width: 388px;
+      height: 378px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Info Card Component Test</h1>
+  <p>Testing the new InfoCard component integration</p>
+  
+  <div class="test-container">
+    <div class="card-wrapper" id="test-card-1"></div>
+    <div class="card-wrapper" id="test-card-2"></div>
+  </div>
+
+  <script src="/components/ui/info-card.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Test Card 1
+      const container1 = document.getElementById('test-card-1');
+      if (container1) {
+        new InfoCard(container1, {
+          image: "https://images.unsplash.com/photo-1567777285486-8af9bfd5d7db?q=80&w=1920&auto=format&fit=crop",
+          title: "American English",
+          description: "Master American English efficiently with personalized lessons, cultural insights, and practical exercises.",
+          borderColor: "#DAFF3E",
+          borderBgColor: "#242424",
+          cardBgColor: "#000",
+          textColor: "#f5f5f5",
+          hoverTextColor: "#242424",
+          effectBgColor: "#DAFF3E"
+        });
+      }
+
+      // Test Card 2
+      const container2 = document.getElementById('test-card-2');
+      if (container2) {
+        new InfoCard(container2, {
+          image: "https://images.unsplash.com/photo-1448906654166-444d494666b3?q=80&w=1920&auto=format&fit=crop",
+          title: "British English",
+          description: "Explore British English nuances, from pronunciation to idioms and dialect-specific words.",
+          borderColor: "#00A8FF",
+          borderBgColor: "#242424",
+          cardBgColor: "#000",
+          textColor: "#f5f5f5",
+          hoverTextColor: "#fff",
+          effectBgColor: "#00A8FF"
+        });
+      }
+    });
+  </script>
+</body>
+</html>

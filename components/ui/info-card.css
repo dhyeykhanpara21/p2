@@ -1,0 +1,291 @@
+/* components/ui/info-card.css */
+/* Info Card Component Styles for shadcn-style implementation */
+
+/* Base card styles */
+.info-card {
+  background-color: var(--card-bg, #0a0a0a);
+  border: 1px solid var(--card-border, #2a2a2a);
+  color: var(--text-primary, #ffffff);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+.text-primary {
+  color: #3b82f6; /* Blue color for primary text/actions */
+}
+
+.text-muted-foreground {
+  color: var(--text-secondary, #b0b0b0);
+}
+
+/* Icon styles */
+.info-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.info-card-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* Hover effects */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover\:translate-y-2:hover {
+  transform: translateY(-0.5rem);
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Title transition */
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.group-hover\:text-primary:hover {
+  color: #3b82f6;
+}
+
+/* Link styles */
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+
+.group\/button:hover .translate-x-1 {
+  transform: translateX(0.25rem);
+}
+
+/* Layout utilities */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Enhanced responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .info-card {
+    transform: none !important; /* Disable 3D effect on mobile */
+  }
+  
+  .p-6 {
+    padding: 1.25rem;
+  }
+  
+  .info-card-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .info-card-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  
+  .text-sm {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gap-8 {
+    gap: 1.5rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  .info-card-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 1rem;
+  }
+  
+  .info-card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .mb-3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 0.75rem;
+  }
+  
+  .text-xl {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-sm {
+    font-size: 0.75rem;
+  }
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  .info-card {
+    background-color: #0a0a0a;
+    border-color: #2a2a2a;
+  }
+  
+  .text-muted-foreground {
+    color: #b0b0b0;
+  }
+}

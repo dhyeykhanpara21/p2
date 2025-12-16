@@ -23,6 +23,11 @@ class RadialOrbitalTimeline {
     this.render();
     this.setupEventListeners();
     this.startAutoRotation();
+    
+    // Add resize listener for better responsiveness
+    window.addEventListener('resize', () => {
+      this.updateNodePositions();
+    });
   }
 
   setupEventListeners() {
@@ -116,7 +121,9 @@ class RadialOrbitalTimeline {
 
   calculateNodePosition(index, total) {
     const angle = ((index / total) * 360 + this.rotationAngle) % 360;
-    const radius = 200;
+    // Adjust radius based on screen size for better mobile responsiveness
+    const baseRadius = 200;
+    const radius = window.innerWidth < 768 ? baseRadius * 0.8 : baseRadius;
     const radian = (angle * Math.PI) / 180;
 
     const x = radius * Math.cos(radian) + this.centerOffset.x;
@@ -317,6 +324,11 @@ class RadialOrbitalTimeline {
     if (typeof lucide !== 'undefined') {
       lucide.createIcons();
     }
+    
+    // Update positions after initial render
+    setTimeout(() => {
+      this.updateNodePositions();
+    }, 100);
   }
 }
 

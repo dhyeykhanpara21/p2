@@ -9,6 +9,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/components/ui/project-card.css" />
+  <link rel="stylesheet" href="/components/ui/info-card.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
@@ -160,6 +161,15 @@
           <h1>Projects</h1>
           <p>Selected work with live demos and source code.</p>
         </div>
+        
+        <!-- Featured Projects Section -->
+        <h2 class="section-title mt-4">Featured Projects</h2>
+        <p class="section-description">Highlighted projects showcasing key skills and technologies.</p>
+        <div id="featuredProjectsGrid"></div>
+        
+        <!-- All Projects Section -->
+        <h2 class="section-title mt-4">All Projects</h2>
+        <p class="section-description">Browse through all my projects and experiments.</p>
         <div id="projectGrid"></div>
       </div>
     </section>
@@ -191,11 +201,15 @@
   <script src="/data.js"></script>
   <script src="/page.js"></script>
   <script src="/components/ui/project-card.js"></script>
+  <script src="/components/ui/info-card.js"></script>
   <script>
     // Initialize project cards when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
       // Get the project grid container
       const projectGrid = document.getElementById('projectGrid');
+      
+      // Get the featured projects grid container
+      const featuredProjectsGrid = document.getElementById('featuredProjectsGrid');
       
       // If we're on the projects page and have the grid container
       if (projectGrid) {
@@ -211,6 +225,34 @@
         
         // Create and render the project cards
         new ProjectCard(projectGrid, projectsData);
+      }
+      
+      // Initialize featured projects with info cards
+      if (featuredProjectsGrid) {
+        // Sample featured projects data
+        const featuredProjectsData = [
+          {
+            title: "E-Commerce Platform",
+            description: "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
+            icon: "shopping-cart",
+            link: "#"
+          },
+          {
+            title: "Task Management App",
+            description: "Collaborative task management application with real-time updates, drag-and-drop interface, and team collaboration features.",
+            icon: "check-circle",
+            link: "#"
+          },
+          {
+            title: "Data Visualization Dashboard",
+            description: "Interactive dashboard for visualizing complex datasets with D3.js and React. Includes filtering, exporting, and custom chart options.",
+            icon: "bar-chart-2",
+            link: "#"
+          }
+        ];
+        
+        // Create and render the featured projects cards
+        new InfoCard(featuredProjectsGrid, featuredProjectsData);
       }
     });
   </script>
