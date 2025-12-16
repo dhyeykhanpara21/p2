@@ -143,12 +143,13 @@
   }
   
   .timeline-dot {
-    left: 76px;
+    left: 58px;
     top: 80px;
   }
   
   .timeline-year {
     font-size: 2.5rem;
+    margin-right: 200px;
   }
   
   .timeline-content {

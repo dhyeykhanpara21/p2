@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Component Demo</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/components/ui/contact.css">
+</head>
+<body>
+  <div id="contact-demo"></div>
+  
+  <script src="/components/ui/contact.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactDemo = document.getElementById('contact-demo');
+      new Contact(contactDemo, {
+        title: "Contact Us",
+        description: "We are available for questions, feedback, or collaboration opportunities. Let us know how we can help!",
+        phone: "(123) 34567890",
+        email: "email@example.com",
+        web: { label: "shadcnblocks.com", url: "https://shadcnblocks.com" }
+      });
+    });
+  </script>
+</body>
+</html>

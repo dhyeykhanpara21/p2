@@ -8,6 +8,7 @@
   <meta name="robots" content="index,follow" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/components/ui/database-with-rest-api.css" />
 </head>
 <body>
   <!-- Loader -->
@@ -158,6 +159,10 @@
           <h1>Achievements & Activities</h1>
           <p>Hackathons, competitions, and leadership.</p>
         </div>
+        
+        <!-- DatabaseWithRestApi Component -->
+        <div id="database-component"></div>
+        
         <div id="achievementsList" class="grid grid-2"></div>
       </div>
     </section>
@@ -188,5 +193,12 @@
 
   <script src="/data.js"></script>
   <script src="/page.js"></script>
+  <script src="/components/ui/database-with-rest-api.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const databaseContainer = document.getElementById('database-component');
+      new DatabaseWithRestApi(databaseContainer);
+    });
+  </script>
 </body>
 </html>
