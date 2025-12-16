@@ -2,7 +2,7 @@
 const qs = (s, el=document) => el.querySelector(s);
 const qsa = (s, el=document) => [...el.querySelectorAll(s)];
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   // Loader
   setTimeout(() => { 
     const l = qs('#loader'); 
@@ -38,29 +38,16 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mobile nav toggle (legacy)
-  const navToggle = qs('#navToggle');
-  const mobileNav = qs('#mobileNav');
-  if (navToggle && mobileNav) {
-    navToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('show');
-    });
-    qsa('#mobileNav .nav-link').forEach(a => {
-      a.addEventListener('click', () => mobileNav.classList.remove('show'));
-    });
-  }
-
-  // Intersection Observer fade-ins
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('appear');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  qsa('.fade-in').forEach(el => io.observe(el));
+  // Add active class to current page link
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  qsa('.mobile-menu-item').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === '/' && currentPage === 'index.html') {
+      link.classList.add('active');
+    } else if (href === `/${currentPage}`) {
+      link.classList.add('active');
+    }
+  });
 
   // Data-driven rendering (only on pages where elements exist)
   // Note: For certificates page, credly-fetch.js will handle rendering
