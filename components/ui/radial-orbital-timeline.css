@@ -1,0 +1,330 @@
+/* Radial Orbital Timeline Component Styles */
+
+.rot-container {
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+
+.rot-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 64rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rot-orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  transform: translate(var(--center-offset-x, 0px), var(--center-offset-y, 0px));
+}
+
+/* Center Core */
+.rot-core {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom right, #a855f7, #3b82f6, #14b8a6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: rot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.rot-core-ping {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: rot-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.rot-core-ping-delayed {
+  animation-delay: 0.5s;
+  opacity: 0.7;
+}
+
+.rot-core-inner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+/* Orbit Ring */
+.rot-orbit-ring {
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Nodes */
+.rot-node {
+  position: absolute;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
+
+/* Pulse Effect */
+.rot-pulse {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 2.5rem;
+  height: 2.5rem;
+  left: -0.75rem;
+  top: -0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.rot-pulse-active {
+  animation: rot-pulse 1s ease-in-out infinite;
+  opacity: 1;
+}
+
+/* Node Circle */
+.rot-node-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.rot-node-circle svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.rot-related {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  border: 2px solid rgba(255, 255, 255, 1);
+  animation: rot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.rot-expanded {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.5);
+}
+
+/* Node Title */
+.rot-node-title {
+  position: absolute;
+  top: 3rem;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rot-title-expanded {
+  color: #fff;
+  transform: scale(1.25);
+}
+
+/* Node Card */
+.rot-node-card {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  overflow: visible;
+  display: none;
+  z-index: 200;
+}
+
+.rot-card-connector {
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.rot-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem 0.5rem;
+}
+
+.rot-card-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.rot-card-date {
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.rot-card-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0.5rem 1rem 1rem;
+  color: #fff;
+}
+
+.rot-card-content {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0 1rem 1rem;
+  line-height: 1.5;
+}
+
+/* Energy Section */
+.rot-card-energy {
+  margin: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rot-energy-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rot-energy-icon {
+  margin-right: 0.25rem;
+}
+
+.rot-energy-value {
+  float: right;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rot-energy-bar {
+  width: 100%;
+  height: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.rot-energy-fill {
+  height: 100%;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  border-radius: 9999px;
+}
+
+/* Related Items */
+.rot-card-related {
+  margin: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rot-related-label {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rot-related-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.rot-related-item {
+  font-size: 0.625rem;
+  padding: 0.125rem 0.375rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animations */
+@keyframes rot-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes rot-ping {
+  75%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .rot-orbit-ring {
+    width: 20rem;
+    height: 20rem;
+  }
+  
+  .rot-node-card {
+    width: 14rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rot-orbit-ring {
+    width: 16rem;
+    height: 16rem;
+  }
+  
+  .rot-node-card {
+    width: 12rem;
+  }
+  
+  .rot-card-content {
+    font-size: 0.625rem;
+  }
+}

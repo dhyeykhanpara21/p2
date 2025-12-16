@@ -8,6 +8,8 @@
   <meta name="robots" content="index,follow" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/components/ui/radial-orbital-timeline.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
   <!-- Loader -->
@@ -156,73 +158,11 @@
       <div class="container">
         <div class="section-header">
           <h1>Skills & Technologies</h1>
-          <p>Tools and platforms I work with.</p>
+          <p>Interactive visualization of my technical skills and expertise.</p>
         </div>
-        <div class="grid grid-2 gap-4">
-          <div class="card fade-in">
-            <h3 class="card-title">Frontend</h3>
-            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-              <div class="skill-pill">HTML</div>
-              <div class="skill-pill">CSS</div>
-              <div class="skill-pill">JavaScript</div>
-              <div class="skill-pill">React</div>
-              <div class="skill-pill">Next.js</div>
-              <div class="skill-pill">Tailwind</div>
-            </div>
-          </div>
-          <div class="card fade-in">
-            <h3 class="card-title">Backend</h3>
-            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-              <div class="skill-pill">Node.js</div>
-              <div class="skill-pill">Express</div>
-              <div class="skill-pill">Python</div>
-              <div class="skill-pill">Django</div>
-              <div class="skill-pill">PHP</div>
-              <div class="skill-pill">REST APIs</div>
-            </div>
-          </div>
-          <div class="card fade-in">
-            <h3 class="card-title">Databases</h3>
-            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-              <div class="skill-pill">SQL</div>
-              <div class="skill-pill">PostgreSQL</div>
-              <div class="skill-pill">MongoDB</div>
-              <div class="skill-pill">Firebase</div>
-              <div class="skill-pill">Redis</div>
-            </div>
-          </div>
-          <div class="card fade-in">
-            <h3 class="card-title">Tools & Platforms</h3>
-            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-              <div class="skill-pill">GitHub</div>
-              <div class="skill-pill">Google Cloud</div>
-              <div class="skill-pill">AWS</div>
-              <div class="skill-pill">Docker</div>
-              <div class="skill-pill">Vercel</div>
-              <div class="skill-pill">Netlify</div>
-            </div>
-          </div>
-          <div class="card fade-in">
-            <h3 class="card-title">Design & Collaboration</h3>
-            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-              <div class="skill-pill">Figma</div>
-              <div class="skill-pill">Canva</div>
-              <div class="skill-pill">Git</div>
-              <div class="skill-pill">Jira</div>
-              <div class="skill-pill">Slack</div>
-            </div>
-          </div>
-          <div class="card fade-in">
-            <h3 class="card-title">Other</h3>
-            <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-              <div class="skill-pill">GraphQL</div>
-              <div class="skill-pill">WebSockets</div>
-              <div class="skill-pill">Testing</div>
-              <div class="skill-pill">CI/CD</div>
-              <div class="skill-pill">SEO</div>
-            </div>
-          </div>
-        </div>
+        
+        <!-- Radial Orbital Timeline Container -->
+        <div id="skills-timeline" class="skills-timeline-container"></div>
       </div>
     </section>
     <!-- Tool Stack -->
@@ -437,5 +377,85 @@
   </main>
 
   <script src="/page.js"></script>
+  <script src="/components/ui/radial-orbital-timeline.js"></script>
+  <script>
+    // Skills data for the radial orbital timeline
+    const skillsData = [
+      {
+        id: 1,
+        title: "JavaScript",
+        date: "2020-Present",
+        content: "Proficient in modern JavaScript (ES6+), asynchronous programming, and frameworks like React and Node.js.",
+        category: "Frontend",
+        lucideIcon: "code",
+        relatedIds: [2, 3],
+        status: "completed",
+        energy: 90
+      },
+      {
+        id: 2,
+        title: "React",
+        date: "2021-Present",
+        content: "Experienced in building scalable web applications with React, Redux, and modern hooks.",
+        category: "Frontend",
+        lucideIcon: "component",
+        relatedIds: [1, 3, 4],
+        status: "completed",
+        energy: 85
+      },
+      {
+        id: 3,
+        title: "Node.js",
+        date: "2020-Present",
+        content: "Building RESTful APIs and microservices with Node.js, Express, and MongoDB.",
+        category: "Backend",
+        lucideIcon: "server",
+        relatedIds: [1, 2],
+        status: "completed",
+        energy: 80
+      },
+      {
+        id: 4,
+        title: "Python",
+        date: "2019-Present",
+        content: "Used for data analysis, automation scripts, and backend services with Flask and Django.",
+        category: "Backend",
+        lucideIcon: "terminal",
+        relatedIds: [2, 5],
+        status: "completed",
+        energy: 75
+      },
+      {
+        id: 5,
+        title: "Database Design",
+        date: "2020-Present",
+        content: "Experience with SQL and NoSQL databases including PostgreSQL, MySQL, and MongoDB.",
+        category: "Database",
+        lucideIcon: "database",
+        relatedIds: [3, 4],
+        status: "completed",
+        energy: 70
+      },
+      {
+        id: 6,
+        title: "DevOps",
+        date: "2021-Present",
+        content: "Containerization with Docker, CI/CD pipelines, and cloud deployment on AWS and GCP.",
+        category: "Tools",
+        lucideIcon: "settings",
+        relatedIds: [3, 5],
+        status: "in-progress",
+        energy: 65
+      }
+    ];
+    
+    // Initialize the radial orbital timeline when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const timelineContainer = document.getElementById('skills-timeline');
+      if (timelineContainer) {
+        new RadialOrbitalTimeline(timelineContainer, skillsData);
+      }
+    });
+  </script>
 </body>
 </html>
