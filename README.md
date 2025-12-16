@@ -10,6 +10,7 @@ A sleek, responsive portfolio website with a dark theme, built with vanilla HTML
 - Certificate integration with Credly
 - Experience timeline component
 - Interactive gallery with hover effects
+- Contact form with validation
 - Smooth animations and transitions
 - Mobile-friendly navigation
 - Integration with Lucide icons
@@ -27,7 +28,10 @@ portfolio/
 │       ├── timeline.css
 │       ├── interactive-gallery.js
 │       ├── interactive-gallery.css
-│       └── interactive-gallery-demo.html
+│       ├── interactive-gallery-demo.html
+│       ├── contact-form.js
+│       ├── contact-form.css
+│       └── contact-form-demo.html
 ├── assets/
 ├── index.html
 ├── projects.html
@@ -175,6 +179,45 @@ const galleryItems = [
 ];
 
 new InteractiveGallery(galleryContainer, galleryItems);
+```
+
+### Contact Form
+
+The contact form component provides a clean, responsive contact form with validation:
+
+- Split layout with contact information and form
+- Responsive design that works on all device sizes
+- Form validation and submission handling
+- Dark theme consistency
+- Accessible markup
+
+To use the contact form component:
+
+1. Include the CSS file in your HTML:
+```html
+<link rel="stylesheet" href="/components/ui/contact-form.css" />
+```
+
+2. Include the JavaScript file:
+```html
+<script src="/components/ui/contact-form.js"></script>
+```
+
+3. Add a container element with an ID:
+```html
+<div id="contact-container"></div>
+```
+
+4. Initialize the component with JavaScript:
+```javascript
+const contactContainer = document.getElementById('contact-container');
+new ContactForm(contactContainer, {
+  title: "Contact Us",
+  description: "We are available for questions, feedback, or collaboration opportunities.",
+  phone: "(123) 456-7890",
+  email: "contact@example.com",
+  web: { label: "example.com", url: "https://example.com" }
+});
 ```
 
 ### Credly Certificate Integration

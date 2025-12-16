@@ -8,6 +8,7 @@
   <meta name="robots" content="index,follow" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/components/ui/contact-form.css" />
 </head>
 <body>
   <!-- Loader -->
@@ -152,49 +153,7 @@
 
   <main style="margin-left: 0;">
     <!-- Page Content -->
-    <section class="content-section">
-      <div class="container">
-        <div class="section-header">
-          <h1>Get In Touch</h1>
-          <p>I'm always interested in hearing about new projects and opportunities.</p>
-        </div>
-        <div class="grid grid-2 gap-4" style="max-width: 900px; margin: 0 auto;">
-          <div class="card fade-in">
-            <h3 class="card-title">Contact Information</h3>
-            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-              <div>
-                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">Email</p>
-                <a href="mailto:you@example.com" class="link" style="font-size: 1.1rem;">you@example.com</a>
-              </div>
-              <div>
-                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">LinkedIn</p>
-                <a href="https://linkedin.com/in/yourprofile" class="link" target="_blank" rel="noopener" style="font-size: 1.1rem;">linkedin.com/in/yourprofile</a>
-              </div>
-              <div>
-                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">GitHub</p>
-                <a href="https://github.com/yourhandle" class="link" target="_blank" rel="noopener" style="font-size: 1.1rem;">github.com/yourhandle</a>
-              </div>
-            </div>
-          </div>
-          <form id="contactForm" class="card fade-in" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <div>
-              <label class="label" for="name">Name</label>
-              <input class="input" id="name" name="name" type="text" required />
-            </div>
-            <div>
-              <label class="label" for="email">Email</label>
-              <input class="input" id="email" name="email" type="email" required />
-            </div>
-            <div>
-              <label class="label" for="message">Message</label>
-              <textarea class="input" id="message" name="message" style="min-height: 150px; resize: vertical;" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Send Message</button>
-            <p id="formStatus" style="font-size: 0.9rem; color: var(--text-secondary); text-align: center;"></p>
-          </form>
-        </div>
-      </div>
-    </section>
+    <div id="contactContainer"></div>
 
     <!-- Footer -->
     <footer>
@@ -221,5 +180,21 @@
   </main>
 
   <script src="/page.js"></script>
+  <script src="/components/ui/contact-form.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactContainer = document.getElementById('contactContainer');
+      
+      if (contactContainer) {
+        new ContactForm(contactContainer, {
+          title: "Get In Touch",
+          description: "I'm always interested in hearing about new projects and opportunities.",
+          phone: "(123) 456-7890",
+          email: "you@example.com",
+          web: { label: "example.com", url: "https://example.com" }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
