@@ -117,6 +117,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const y = qs('#year'); 
   if (y) y.textContent = new Date().getFullYear();
 
+  // Dynamic day greeting
+  const currentDayElement = qs('#currentDay');
+  if (currentDayElement) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const today = new Date();
+    currentDayElement.textContent = days[today.getDay()];
+  }
+
   // Initialize side project modals after a short delay to ensure rendering
   setTimeout(initializeSideProjectModals, 100);
 });
@@ -472,6 +480,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Footer year
   const y = qs('#year'); 
   if (y) y.textContent = new Date().getFullYear();
+
+  // Dynamic day greeting
+  const currentDayElement = qs('#currentDay');
+  if (currentDayElement) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const today = new Date();
+    currentDayElement.textContent = days[today.getDay()];
+  }
 
   // Initialize side project modals after a short delay to ensure rendering
   setTimeout(initializeSideProjectModals, 100);
