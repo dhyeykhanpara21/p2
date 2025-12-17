@@ -116,6 +116,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // Footer year
   const y = qs('#year'); 
   if (y) y.textContent = new Date().getFullYear();
+
+  // Initialize side project modals after a short delay to ensure rendering
+  setTimeout(initializeSideProjectModals, 100);
 });
 
 // Renderers
@@ -286,7 +289,7 @@ function renderSideProjects(list) {
 function sideProjectCard(p) {
   const icon = sideProjectIcons[p.icon] || sideProjectIcons.courses;
   return `
-    <a href="${p.url}" class="side-project-item fade-in" target="_blank" rel="noopener">
+    <div class="side-project-item fade-in" data-project-id="${p.id}">
       <div class="side-project-icon">
         ${icon}
       </div>
@@ -299,6 +302,177 @@ function sideProjectCard(p) {
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </div>
-    </a>
+    </div>
   `;
 }
+
+// Add event listeners for side project items after rendering
+function initializeSideProjectModals() {
+  const sideProjectItems = document.querySelectorAll('.side-project-item');
+  
+  sideProjectItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const projectId = this.getAttribute('data-project-id');
+      const project = window.SIDE_PROJECTS.find(p => p.id == projectId);
+      
+      if (project) {
+        const modal = document.getElementById('sideProjectModal');
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalDescription = modal.querySelector('.modal-description');
+        const modalIcon = modal.querySelector('.modal-icon');
+        const modalLink = modal.querySelector('.modal-link');
+        
+        // Set modal content
+        modalTitle.textContent = project.title;
+        modalDescription.textContent = project.details || project.desc;
+        modalIcon.innerHTML = sideProjectIcons[project.icon] || sideProjectIcons.courses;
+        modalLink.href = project.url;
+        
+        // Show modal
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+  
+  // Close modal when clicking on close button
+  const closeBtn = document.querySelector('#sideProjectModal .close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      const modal = document.getElementById('sideProjectModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+  }
+  
+  // Close modal when clicking outside of modal content
+  const modal = document.getElementById('sideProjectModal');
+  if (modal) {
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  }
+}
+
+// Call initializeSideProjectModals after rendering side projects
+document.addEventListener('DOMContentLoaded', () => {
+  // Loader
+  setTimeout(() => { 
+    const l = qs('#loader'); 
+    if (l) l.style.display = 'none'; 
+  }, 400);
+
+  // Mobile menu toggle
+  const mobileMenuToggle = qs('#mobileMenuToggle');
+  const mobileMenuClose = qs('#mobileMenuClose');
+  const mobileMenu = qs('#mobileMenu');
+  
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  
+  if (mobileMenuClose && mobileMenu) {
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('show');
+      document.body.style.overflow = '';
+    });
+  }
+  
+  // Close mobile menu when clicking a link
+  qsa('.mobile-menu-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (mobileMenu) {
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Mobile nav toggle (legacy)
+  const navToggle = qs('#navToggle');
+  const mobileNav = qs('#mobileNav');
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
+    qsa('#mobileNav .nav-link').forEach(a => {
+      a.addEventListener('click', () => mobileNav.classList.remove('show'));
+    });
+  }
+
+  // Intersection Observer fade-ins
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('appear');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  qsa('.fade-in').forEach(el => io.observe(el));
+
+  // Data-driven rendering (only on pages where elements exist)
+  // Note: For certificates page, credly-fetch.js will handle rendering
+  if (qs('#projectGrid')) renderProjects(window.PROJECTS || []);
+  if (qs('#sideProjectsList')) renderSideProjects(window.SIDE_PROJECTS || []);
+  if (qs('#expList')) renderExperience(window.EXPERIENCE || []);
+  if (qs('#achievementsList')) renderAchievements(window.ACHIEVEMENTS || []);
+
+  // Filters and search (only on certificates page)
+  if (qs('.filter-btn')) {
+    let activeFilter = 'all';
+    let searchTerm = '';
+    qsa('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
+      qsa('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyCertFilters();
+    }));
+    qs('#certSearch')?.addEventListener('input', (e) => { 
+      searchTerm = e.target.value.toLowerCase(); 
+      applyCertFilters(); 
+    });
+
+    function applyCertFilters() {
+      const filtered = (window.CERTS || []).filter(c => {
+        const matchesCat = activeFilter === 'all' || c.category === activeFilter;
+        const matchesText = [c.title, c.org, c.year, c.category].join(' ').toLowerCase().includes(searchTerm);
+        return matchesCat && matchesText;
+      });
+      renderCertificates(filtered);
+    }
+  }
+
+  // Contact form
+  const form = qs('#contactForm');
+  const formStatus = qs('#formStatus');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (formStatus) formStatus.textContent = 'Sending...';
+      const data = Object.fromEntries(new FormData(form).entries());
+      try {
+        // Demo only: replace with Formspree/EmailJS/serverless
+        await new Promise(r => setTimeout(r, 800));
+        form.reset();
+        if (formStatus) formStatus.textContent = 'Message sent. I will get back to you soon.';
+      } catch (err) {
+        if (formStatus) formStatus.textContent = 'Something went wrong. Please try again later.';
+      }
+    });
+  }
+
+  // Footer year
+  const y = qs('#year'); 
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Initialize side project modals after a short delay to ensure rendering
+  setTimeout(initializeSideProjectModals, 100);
+});

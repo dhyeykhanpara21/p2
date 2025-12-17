@@ -43,8 +43,36 @@ window.ACHIEVEMENTS = [
 
 // Side Projects
 window.SIDE_PROJECTS = [
-  { id: 1, title: 'Discord Community for Gamers', desc: 'Built a thriving gaming community with 5000+ members', icon: 'discord', url: '#' },
-  { id: 2, title: 'Honda Civic 2008 Modification', desc: 'Custom car modification project with performance upgrades', icon: 'car', url: '#' },
-  { id: 3, title: 'Self-Paced Courses Website', desc: 'Educational platform with interactive learning modules', icon: 'courses', url: '#' },
-  { id: 4, title: 'Podcast Series', desc: 'Tech podcast covering development trends and interviews', icon: 'podcast', url: '#' },
+  { 
+    id: 1, 
+    title: 'Discord Community for Gamers', 
+    desc: 'Built a thriving gaming community with 5000+ members', 
+    icon: 'discord', 
+    url: '#',
+    details: 'Created and managed a Discord server for gamers that grew to over 5000 active members. Implemented custom bots for moderation, game matchmaking, and community events. Organized weekly tournaments and maintained engagement through interactive channels.'
+  },
+  { 
+    id: 2, 
+    title: 'Honda Civic 2008 Modification', 
+    desc: 'Custom car modification project with performance upgrades', 
+    icon: 'car', 
+    url: '#',
+    details: 'Comprehensive modification project for a Honda Civic including engine tuning, suspension upgrades, and aesthetic enhancements. Increased horsepower by 30% and improved handling characteristics. Documented the entire process with before/after metrics and photos.'
+  },
+  { 
+    id: 3, 
+    title: 'Self-Paced Courses Website', 
+    desc: 'Educational platform with interactive learning modules', 
+    icon: 'courses', 
+    url: '#',
+    details: 'Developed an educational platform featuring self-paced courses with interactive quizzes, progress tracking, and certification. Built with React and Node.js, incorporating gamification elements to increase student engagement and completion rates.'
+  },
+  { 
+    id: 4, 
+    title: 'Podcast Series', 
+    desc: 'Tech podcast covering development trends and interviews', 
+    icon: 'podcast', 
+    url: '#',
+    details: 'Launched a technology podcast featuring interviews with industry experts, discussions on emerging trends, and practical advice for developers. Produced 50+ episodes with 10,000+ downloads, covering topics from web development to AI advancements.'
+  },
 ];
