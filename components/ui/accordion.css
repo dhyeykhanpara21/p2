@@ -1,0 +1,137 @@
+/* components/ui/accordion.css */
+/* Accordion Component Styles */
+
+.accordion {
+  width: 100%;
+}
+
+.accordion-item {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.accordion-header {
+  display: flex;
+}
+
+.accordion-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.accordion-trigger:hover {
+  text-decoration: underline;
+}
+
+.accordion-trigger:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.accordion-content {
+  overflow: hidden;
+  text-size-adjust: 100%;
+}
+
+.accordion-content-closed {
+  display: none;
+}
+
+.accordion-content-open {
+  display: block;
+}
+
+.accordion-content > div {
+  padding-bottom: 1rem;
+  padding-top: 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Animation for accordion */
+@media (prefers-reduced-motion: no-preference) {
+  .accordion-content {
+    transition: all 0.2s ease-out;
+  }
+  
+  .accordion-content-closed {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  
+  .accordion-content-open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframe animations for accordion */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.accordion-content[data-state="open"] {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.accordion-content[data-state="closed"] {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* Icon rotation */
+.accordion-trigger i[data-lucide="chevron-down"] {
+  transition: transform 0.2s ease;
+}
+
+.accordion-trigger i[data-lucide="chevron-down"].rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .accordion-trigger {
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .accordion-content > div {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion-trigger {
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .accordion-content > div {
+    font-size: 0.75rem;
+  }
+}

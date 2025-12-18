@@ -9,6 +9,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/components/ui/radial-orbital-timeline.css" />
+  <link rel="stylesheet" href="/components/ui/accordion.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
@@ -356,6 +357,16 @@
         </div>
       </div>
     </section>
+    <!-- FAQ Section -->
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="max-w-3xl mx-auto">
+          <div id="skillsFAQ" class="mb-12"></div>
+        </div>
+      </div>
+    </section>
+    
     <!-- Footer -->
     <footer>
       <div class="container">
@@ -382,6 +393,7 @@
 
   <script src="/page.js"></script>
   <script src="/components/ui/radial-orbital-timeline.js"></script>
+  <script src="/components/ui/accordion.js"></script>
   <script>
     // Skills data for the radial orbital timeline
     const skillsData = [
@@ -458,6 +470,38 @@
       const timelineContainer = document.getElementById('skills-timeline');
       if (timelineContainer) {
         new RadialOrbitalTimeline(timelineContainer, skillsData);
+      }
+      
+      // Initialize the FAQ accordion
+      const faqContainer = document.getElementById('skillsFAQ');
+      if (faqContainer) {
+        const faqItems = [
+          {
+            title: 'What do you enjoy outside of technology?',
+            content: 'When I’m not coding, I enjoy playing cricket for the team spirit and discipline it builds, chess for strategic thinking and patience, and mobile games to relax and unwind. These activities help me stay focused, competitive, and mentally sharp.'
+          },
+          {
+            title: 'How do you stay updated with the latest technologies?',
+            content: 'I regularly contribute to open-source projects, attend tech meetups and conferences, and maintain a personal blog where I document my learning journey. I also experiment with new frameworks and tools in side projects to gain hands-on experience.'
+          },
+          {
+            title: 'What\'s your approach to learning new skills?',
+            content: 'I follow a practical approach to learning - building real projects while learning new technologies. I start with documentation and tutorials, then move on to creating small projects, and finally contribute to larger ones. This helps me understand both the theoretical and practical aspects of a technology.'
+          },
+          {
+            title: 'Can you work with remote teams?',
+            content: 'Yes, I have extensive experience working with remote teams across different time zones. I\'m proficient with collaboration tools like Slack, Zoom, and Git, and I understand the importance of clear communication and documentation in remote environments.'
+          },
+          {
+            title: 'What do you enjoy outside of technology?',
+            content: 'When I\'m not coding, I enjoy playing cricket for the team spirit and discipline it builds, chess for strategic thinking and patience, and mobile games to relax and unwind. These activities help me stay focused, competitive, and mentally sharp.'
+          }
+        ];
+        
+        new Accordion(faqContainer, faqItems, {
+          collapsible: true,
+          defaultValue: 'item-1'
+        });
       }
     });
   </script>
