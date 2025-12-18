@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Card Showcase</title>
+  <style>
+    /* Base styles */
+    .gradient-cards-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      min-height: 100vh;
+      background-color: #0a0a0a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .gradient-card {
+      position: relative;
+      width: 320px;
+      height: 400px;
+      margin: 40px 30px;
+      transition: all 0.5s ease;
+    }
+
+    /* Skewed gradient panels */
+    .gradient-panel {
+      position: absolute;
+      top: 0;
+      left: 50px;
+      width: 50%;
+      height: 100%;
+      border-radius: 8px;
+      transform: skewX(15deg);
+      transition: all 0.5s ease;
+    }
+
+    .gradient-panel.blur {
+      filter: blur(30px);
+    }
+
+    /* Animated blurs */
+    .animated-blobs {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 8px;
+      opacity: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.1s ease;
+      width: 0;
+      height: 0;
+    }
+
+    .blob.top {
+      top: 0;
+      left: 0;
+    }
+
+    .blob.bottom {
+      bottom: 0;
+      right: 0;
+    }
+
+    /* Content */
+    .card-content {
+      position: relative;
+      z-index: 20;
+      left: 0;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      color: white;
+      transition: all 0.5s ease;
+    }
+
+    .card-content h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .card-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .card-link {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 700;
+      color: black;
+      background: white;
+      padding: 12px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .card-link:hover {
+      background: #ffcf4d;
+      border: 1px solid rgba(255, 0, 88, 0.4);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Hover effects */
+    .gradient-card:hover .gradient-panel {
+      transform: skewX(0);
+      left: 20px;
+      width: calc(100% - 90px);
+    }
+
+    .gradient-card:hover .blob.top {
+      top: -50px;
+      left: 50px;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+    }
+
+    .gradient-card:hover .blob.bottom {
+      bottom: -50px;
+      right: 50px;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+    }
+
+    .gradient-card:hover .card-content {
+      left: -25px;
+      padding: 60px 40px;
+    }
+
+    /* Animation keyframes */
+    @keyframes blob {
+      0%, 100% {
+        transform: translateY(10px);
+      }
+      50% {
+        transform: translate(-10px);
+      }
+    }
+
+    .animate-blob {
+      animation: blob 2s ease-in-out infinite;
+    }
+
+    .animation-delay-1000 {
+      animation-delay: -1s;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .gradient-card {
+        width: 280px;
+        height: 350px;
+        margin: 30px 20px;
+      }
+      
+      .card-content h2 {
+        font-size: 20px;
+      }
+      
+      .card-content p {
+        font-size: 16px;
+      }
+      
+      .card-link {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gradient-cards-container {
+        padding: 20px 10px;
+      }
+      
+      .gradient-card {
+        width: 90%;
+        height: 320px;
+        margin: 20px 10px;
+      }
+      
+      .card-content {
+        padding: 15px 20px;
+      }
+      
+      .card-content h2 {
+        font-size: 18px;
+      }
+      
+      .card-content p {
+        font-size: 14px;
+      }
+      
+      .card-link {
+        font-size: 14px;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-cards-container">
+    <div class="gradient-card">
+      <div class="gradient-panel" style="background: linear-gradient(315deg, #ffbc00, #ff0058);"></div>
+      <div class="gradient-panel blur" style="background: linear-gradient(315deg, #ffbc00, #ff0058);"></div>
+      
+      <div class="animated-blobs">
+        <div class="blob top animate-blob"></div>
+        <div class="blob bottom animate-blob animation-delay-1000"></div>
+      </div>
+      
+      <div class="card-content">
+        <h2>Card one</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a href="#" class="card-link">Read More</a>
+      </div>
+    </div>
+    
+    <div class="gradient-card">
+      <div class="gradient-panel" style="background: linear-gradient(315deg, #03a9f4, #ff0058);"></div>
+      <div class="gradient-panel blur" style="background: linear-gradient(315deg, #03a9f4, #ff0058);"></div>
+      
+      <div class="animated-blobs">
+        <div class="blob top animate-blob"></div>
+        <div class="blob bottom animate-blob animation-delay-1000"></div>
+      </div>
+      
+      <div class="card-content">
+        <h2>Card two</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a href="#" class="card-link">Read More</a>
+      </div>
+    </div>
+    
+    <div class="gradient-card">
+      <div class="gradient-panel" style="background: linear-gradient(315deg, #4dff03, #00d0ff);"></div>
+      <div class="gradient-panel blur" style="background: linear-gradient(315deg, #4dff03, #00d0ff);"></div>
+      
+      <div class="animated-blobs">
+        <div class="blob top animate-blob"></div>
+        <div class="blob bottom animate-blob animation-delay-1000"></div>
+      </div>
+      
+      <div class="card-content">
+        <h2>Card three</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a href="#" class="card-link">Read More</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

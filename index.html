@@ -485,6 +485,17 @@ Whether collaborating with a team or working independently, I bring a balance of
       </div>
     </section>
 
+    <!-- Gradient Cards Section -->
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">My Services</h2>
+        <p class="section-description">Explore the range of services I offer to help bring your ideas to life.</p>
+        
+        <!-- Gradient Cards Container -->
+        <div id="services-cards"></div>
+      </div>
+    </section>
+
     <!-- Social Validation -->
     <section class="content-section testimonials-section">
       <div class="testimonials-header">
@@ -683,5 +694,33 @@ Whether collaborating with a team or working independently, I bring a balance of
   <script src="/data.js"></script>
   <script src="/main.js"></script>
   <script src="/glowing-effect.js"></script>
+  <script src="/components/ui/gradient-card-generator.js"></script>
+  <script>
+    // Initialize gradient cards when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const services = [
+        {
+          title: 'Full-Stack Development',
+          desc: 'Building complete web applications with modern frontend frameworks and robust backend systems.',
+          gradientFrom: '#ffbc00',
+          gradientTo: '#ff0058',
+        },
+        {
+          title: 'UI/UX Design',
+          desc: 'Creating beautiful, intuitive interfaces that provide exceptional user experiences.',
+          gradientFrom: '#03a9f4',
+          gradientTo: '#ff0058',
+        },
+        {
+          title: 'Cloud Solutions',
+          desc: 'Deploying and managing scalable applications on cloud platforms like AWS and Azure.',
+          gradientFrom: '#ff6b6b',
+          gradientTo: '#00d0ff',
+        },
+      ];
+      
+      generateGradientCards('services-cards', services);
+    });
+  </script>
 </body>
 </html>
