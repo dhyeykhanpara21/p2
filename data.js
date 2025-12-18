@@ -14,9 +14,9 @@ window.CERTS = [
 
 // Projects
 window.PROJECTS = [
-  { id: 1, title: 'Portfolio Website', desc: 'Minimal, fast, SEO-friendly personal site.', tech: ['HTML', 'Tailwind', 'JS'], image: 'assets/project-1.jpg', demo: '#', source: '#' },
-  { id: 2, title: 'Realtime Chat', desc: 'Socket-based realtime chat with auth.', tech: ['React', 'Node', 'Socket.IO'], image: 'assets/project-2.jpg', demo: '#', source: '#' },
-  { id: 3, title: 'Task Tracker', desc: 'Full-stack CRUD app with auth and charts.', tech: ['Next.js', 'Prisma', 'Postgres'], image: 'assets/project-3.jpg', demo: '#', source: '#' },
+  { id: 1, title: 'Suchi Tracker', desc: 'Full-stack inventory & sales management system for Anganwadi centers with role-based dashboards and efficient tracking.', tech: ['HTML', 'css', 'JS', 'php', 'Mysql'], image: 'assets/project-1.jpg', demo: '#', source: '#' },
+  { id: 2, title: 'NixKart', desc: 'Custom eCommerce platform with secure authentication, product management, order tracking, and scalable backend.', tech: ['Html', ' css', 'Js', 'Django', 'Neo4j'], image: 'assets/project-2.jpg', demo: '#', source: '#' },
+  { id: 3, title: 'Cyber Security Dashboard', desc: 'Full-stack vulnerability assessment dashboard with dynamic charts, filters, and severity-based security insights.', tech: ['Python', 'Flask', 'HTML', 'css', 'JS'], image: 'assets/project-3.jpg', demo: '#', source: '#' },
 ];
 
 // Experience
