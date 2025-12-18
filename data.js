@@ -43,36 +43,38 @@ window.ACHIEVEMENTS = [
 
 // Side Projects
 window.SIDE_PROJECTS = [
-  { 
-    id: 1, 
-    title: 'Discord Community for Gamers', 
-    desc: 'Built a thriving gaming community with 5000+ members', 
-    icon: 'discord', 
-    url: '#',
-    details: 'Created and managed a Discord server for gamers that grew to over 5000 active members. Implemented custom bots for moderation, game matchmaking, and community events. Organized weekly tournaments and maintained engagement through interactive channels.'
-  },
-  { 
-    id: 2, 
-    title: 'Honda Civic 2008 Modification', 
-    desc: 'Custom car modification project with performance upgrades', 
-    icon: 'car', 
-    url: '#',
-    details: 'Comprehensive modification project for a Honda Civic including engine tuning, suspension upgrades, and aesthetic enhancements. Increased horsepower by 30% and improved handling characteristics. Documented the entire process with before/after metrics and photos.'
-  },
-  { 
-    id: 3, 
-    title: 'Self-Paced Courses Website', 
-    desc: 'Educational platform with interactive learning modules', 
-    icon: 'courses', 
-    url: '#',
-    details: 'Developed an educational platform featuring self-paced courses with interactive quizzes, progress tracking, and certification. Built with React and Node.js, incorporating gamification elements to increase student engagement and completion rates.'
-  },
-  { 
-    id: 4, 
-    title: 'Podcast Series', 
-    desc: 'Tech podcast covering development trends and interviews', 
-    icon: 'podcast', 
-    url: '#',
-    details: 'Launched a technology podcast featuring interviews with industry experts, discussions on emerging trends, and practical advice for developers. Produced 50+ episodes with 10,000+ downloads, covering topics from web development to AI advancements.'
-  },
+{
+  id: 1,
+  title: 'Web App Threat Scanner',
+  desc: 'A visual-first security scanner built to think like an attacker',
+  icon: 'shield',
+  url: '#',
+  details: 'Designed a single-page web security scanner that simulates real-world attack patterns to identify common vulnerabilities. Focused on clarity over complexity by visualizing risk levels, scan progress, and results using an animated, matrix-style interface. Integrated automated webhook-based scanning to enable extensibility and real-time analysis.'
+},
+  {
+  id: 2,
+  title: 'Jarvis – Voice-First AI System',
+  desc: 'An AI assistant controlled by voice, not clicks',
+  icon: 'mic',
+  url: '#',
+  details: 'Built an experimental voice-controlled AI assistant that responds to spoken commands for search, weather, time, and system-level tasks. Implemented speech recognition and text-to-speech to create a natural interaction flow. Designed the system to be modular, allowing new commands and integrations to be added with minimal effort.'
+},
+  {
+  id: 3,
+  title: 'Data Hunters (Web Scrapers)',
+  desc: 'Turning messy websites into clean, usable data',
+  icon: 'code',
+  url: '#',
+  details: 'Developed a suite of Python-based web scrapers to extract structured data from job portals, e-commerce platforms, and news websites. Implemented robust error handling, filtering, and data validation to ensure accuracy. Exported data in CSV and JSON formats for analysis, reporting, and system integration.'
+},
+
+  {
+  id: 4,
+  title: 'Cyber Insight Dashboard',
+  desc: 'Security data that humans can actually understand',
+  icon: 'bar-chart',
+  url: '#',
+  details: 'Created a full-stack vulnerability assessment dashboard that converts raw security findings into meaningful insights. Implemented dynamic charts, severity-based filtering, and interactive UI components to help users quickly identify and prioritize risks. Optimized the architecture for scalability and maintainability.'
+},
+
 ];
