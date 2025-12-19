@@ -77,15 +77,25 @@ window.PROJECTS = [
 
 // Experience
 window.EXPERIENCE = [
-  { role: 'Frontend Intern', company: 'Tech Co.', duration: 'Jun 2023 — Sep 2023', bullets: [
-    'Implemented responsive UI components with React and Tailwind.',
-    'Optimized build performance and Lighthouse scores.',
-    'Collaborated with designers to refine UX flows.'
+  { role: 'DevSecOps Engineer', company: 'Aphelion Cyber', duration: 'Mar 2025 — Current', bullets: [
+    'Developed full-stack web applications with React, Django, Flask, SQL, and CSS, creating user-friendly interfaces and strong backend systems.',
+    'Ensured applications stayed secure by fixing vulnerabilities, following secure coding practices, and carrying out basic security testing.',
+    'Worked with different teams to deliver software that was efficient, scalable, and security-focused.',
+    'Used DevOps tools like Docker, CI/CD automation, and cloud monitoring to make applications more stable and easier to maintain.',
+    'Communicated effectively with team members and stakeholders to understand requirements, provide updates, and ensure smooth project delivery.'
   ]},
-  { role: 'Backend Intern', company: 'Startup XYZ', duration: 'Jan 2023 — Apr 2023', bullets: [
-    'Built REST APIs with Node and Express.',
-    'Integrated JWT auth, rate limiting, and logging.',
-    'Containerized services with Docker.'
+  { role: 'Full Stack Developer Intern', company: 'WebCodeGenie', duration: 'Sep 2024 — Feb 2025', bullets: [
+    'Collaborated with cross-functional agile teams to design, develop, and deploy scalable full-stack web applications.',
+    'Utilized React.js for building interactive and responsive front-end components with state management and routing.',
+    'Developed and integrated RESTful APIs using Django and Flask, ensuring seamless communication between frontend and backend systems.',
+    'Deployed applications on cloud platforms including Google Cloud Platform (GCP), Render, and Vercel for optimal performance and availability.'
+  ]},
+  { role: 'Full Stack Developer Intern', company: 'Codage Habitation', duration: 'Mar 2024 — Aug 2024', bullets: [
+    'Designed and developed responsive web applications using React.js for frontend and Node.js with Express for backend services.',
+    'Implemented RESTful APIs and integrated MongoDB databases for efficient data storage and retrieval.',
+    'Collaborated with senior developers to optimize application performance and ensure code quality through code reviews.',
+    'Participated in agile development cycles, including sprint planning, daily standups, and retrospectives.',
+    'Deployed applications using Docker containers and managed version control through Git workflows.'
   ]}
 ];
 
