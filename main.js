@@ -64,7 +64,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Data-driven rendering (only on pages where elements exist)
   // Note: For certificates page, credly-fetch.js will handle rendering
-  if (qs('#projectGrid')) renderProjects(window.PROJECTS || []);
+  if (qs('#projectGrid')) {
+      // On home page, show only first 3 projects; on projects page, show all
+      if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '' || window.location.pathname.endsWith('/index.html')) {
+        renderProjects(window.PROJECTS || [], 3);
+      } else {
+        renderProjects(window.PROJECTS || []);
+      }
+    }
   if (qs('#sideProjectsList')) renderSideProjects(window.SIDE_PROJECTS || []);
   if (qs('#expList')) renderExperience(window.EXPERIENCE || []);
   if (qs('#achievementsList')) renderAchievements(window.ACHIEVEMENTS || []);
@@ -184,11 +191,15 @@ function certCard(c) {
   }
 }
 
-function renderProjects(list) {
+function renderProjects(list, limit = null) {
   const grid = qs('#projectGrid'); 
   if (!grid) return;
+  
+  // If limit is specified, only show that many projects
+  const projectsToShow = limit ? list.slice(0, limit) : list;
+  
   grid.classList.add('pin-projects-grid');
-  grid.innerHTML = list.map(p => projectCard(p)).join('');
+  grid.innerHTML = projectsToShow.map(p => projectCard(p)).join('');
   qsa('#projectGrid > *').forEach((el, i) => { 
     el.style.transitionDelay = `${i*40}ms`; 
     el.classList.add('fade-in', 'appear'); 
@@ -432,7 +443,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Data-driven rendering (only on pages where elements exist)
   // Note: For certificates page, credly-fetch.js will handle rendering
-  if (qs('#projectGrid')) renderProjects(window.PROJECTS || []);
+  if (qs('#projectGrid')) {
+      // On home page, show only first 3 projects; on projects page, show all
+      if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '' || window.location.pathname.endsWith('/index.html')) {
+        renderProjects(window.PROJECTS || [], 3);
+      } else {
+        renderProjects(window.PROJECTS || []);
+      }
+    }
   if (qs('#sideProjectsList')) renderSideProjects(window.SIDE_PROJECTS || []);
   if (qs('#expList')) renderExperience(window.EXPERIENCE || []);
   if (qs('#achievementsList')) renderAchievements(window.ACHIEVEMENTS || []);

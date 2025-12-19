@@ -17,6 +17,61 @@ window.PROJECTS = [
   { id: 1, title: 'Suchi Tracker', desc: 'Full-stack inventory & sales management system for Anganwadi centers with role-based dashboards and efficient tracking.', tech: ['HTML', 'css', 'JS', 'php', 'Mysql'], image: 'assets/suchitracker.png', demo: '#', source: '#' },
   { id: 2, title: 'NixKart', desc: 'Custom eCommerce platform with secure authentication, product management, order tracking, and scalable backend.', tech: ['Html', ' css', 'Js', 'Django', 'Neo4j'], image: 'assets/nixkart.png', demo: '#', source: '#' },
   { id: 3, title: 'Cyber Security Dashboard', desc: 'Full-stack vulnerability assessment dashboard with dynamic charts, filters, and severity-based security insights.', tech: ['Python', 'Flask', 'HTML', 'css', 'JS'], image: 'assets/cybersecurity.png', demo: '#', source: '#' },
+  { 
+  id: 4, 
+  title: 'FraudGuard', 
+  desc: 'Card fraud detection system that analyzes transaction patterns in real-time to detect and prevent fraudulent activities using AI-driven risk scoring.', 
+  tech: ['Python', 'Machine Learning', 'Flask', 'React', 'PostgreSQL'], 
+  image: 'assets/fruadguard.png', 
+  demo: '#', 
+  source: '#' 
+},
+{ 
+  id: 5, 
+  title: 'Configrator', 
+  desc: 'Advanced product configurator system for a Russian enterprise, allowing dynamic configuration of components, validation rules, and real-time pricing logic.', 
+  tech: ['Next.js', 'Node.js', 'MongoDB', 'Tailwind CSS'], 
+  image: 'assets/Configrator.png', 
+  demo: '#', 
+  source: '#' 
+},
+{ 
+  id: 6, 
+  title: 'Trecly Tag', 
+  desc: 'Stock and inventory management system with QR code tracking, real-time stock updates, and audit-friendly item traceability.', 
+  tech: ['React', 'Django', 'PostgreSQL', 'QR Code API'], 
+  image: 'assets/treclytag.png', 
+  demo: '#', 
+  source: '#' 
+},
+{ 
+  id: 7, 
+  title: 'FlipBook Make', 
+  desc: 'Digital flipbook creation software that converts PDFs into interactive page-turning experiences with animations and sharing options.', 
+  tech: ['JavaScript', 'HTML5 Canvas', 'CSS', 'Node.js'], 
+  image: 'assets/flipbookmake.png', 
+  demo: '#', 
+  source: '#' 
+},
+{ 
+  id: 8, 
+  title: 'LuphSync', 
+  desc: 'DevOps automation platform that manages CI/CD pipelines, cloud deployments, environment configs, and project go-live workflows.', 
+  tech: ['django','javascript', 'GitHub Actions', 'AWS', 'Node.js'], 
+  image: 'assets/luphsync.png', 
+  demo: '#', 
+  source: '#' 
+},
+{ 
+  id: 9, 
+  title: 'VoteSphere', 
+  desc: 'Secure online voting system with user authentication, encrypted ballots, real-time result tracking, and admin-controlled elections.', 
+  tech: ['php', 'html','css', 'MongoDB', 'JWT', 'Blockchain'], 
+  image: 'assets/votesphere.png', 
+  demo: '#', 
+  source: '#' 
+}
+
 ];
 
 

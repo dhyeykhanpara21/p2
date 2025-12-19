@@ -202,6 +202,7 @@
   <script src="/page.js"></script>
   <script src="/components/ui/project-card.js"></script>
   <script src="/components/ui/info-card.js"></script>
+  <script src="/debug-projects.js"></script>
   <script>
     // Initialize project cards when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
@@ -209,8 +210,7 @@
       const projectGrid = document.getElementById('projectGrid');
       
       // Get the featured projects grid container
-      const featuredProjectsGrid = document.getElementById('featuredProjectsGrid');
-      
+      const featuredProjectsGrid = document.getElementById('featuredProjectsGrid');      
       // If we're on the projects page and have the grid container
       if (projectGrid) {
         // Use actual project data if available
