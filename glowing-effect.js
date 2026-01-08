@@ -28,14 +28,14 @@ class GlowingEffect {
     this.init();
   }
 
-  init() {
-    // Create wrapper structure
+  init() { 
+    
     this.createWrapper();
     
-    // Set initial styles
+
     this.applyStyles();
 
-    // Bind event listeners
+    
     if (!this.options.disabled) {
       this.bindEvents();
     }

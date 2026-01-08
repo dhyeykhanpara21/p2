@@ -43,7 +43,7 @@ portfolio/
 ├── about.html
 ├── certificates.html
 ├── experience.html
-├── achievements.html
+
 ├── contact.html
 ├── styles.css
 ├── data.js
@@ -342,4 +342,4 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
 We use a simple static build approach instead of Vite's build command to avoid permission issues that can occur on Vercel hosting platforms.
 
-## Debugging
+## Debuggings 

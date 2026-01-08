@@ -39,7 +39,7 @@ const itemsToCopy = [
     'certificates.html',
     'projects.html',
     'experience.html',
-    'achievements.html',
+
     'contact.html',
     'glowing-demo.html',
     'project-card-demo.html',
