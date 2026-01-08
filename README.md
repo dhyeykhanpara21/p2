@@ -266,7 +266,7 @@ const contactContainer = document.getElementById('contact-container');
 new ContactForm(contactContainer, {
   title: "Contact Us",
   description: "We are available for questions, feedback, or collaboration opportunities.",
-  phone: "(123) 456-7890",
+  phone: "+91 97377 94277",
   email: "contact@example.com",
   web: { label: "example.com", url: "https://example.com" }
 });
